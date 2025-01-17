@@ -45,20 +45,20 @@
         <tbody class="tbody">
             @foreach ($data as $row)
                 <tr>
-                    <td><a href="attrs/{{ $row['data_class_id'] }}">{{ $row['data_class_id'] }}</a></td>
-                    <td>{{ $row['data_class_name'] }}</td>
-                    <td>{{ $row['data_class_direct'] }}</td>
-                    <td>{{ $row['data_class_source'] }}</td>
-                    <td>{{ $row['data_class_dr'] }}</td>
-                    <td>{{ $row['data_class_dict'] }}</td>
-                    <td>{{ $row['child_table1'] }}</td>
-                    <td>{{ $row['child_table2'] }}</td>
-                    <td>{{ $row['description'] }}</td>
-                    <td>{{ $row['subsystem'] }}</td>
-                    <td>{{ $row['reciever'] }}</td>
-                    <td>{{ $row['wiki_link'] }}</td>
-                    <td>{{ $row['load_method'] }}</td>
-                    <td>{{ $row['last_updated_dev'] }}</td>
+                    <td><a href="attrs/{{ $row->data_class_id }}">{{ $row->data_class_id }}</a></td>
+                    <td>{{ $row->data_class_name }}</td>
+                    <td>{{ $row->data_class_direct }}</td>
+                    <td>{{ $row->data_class_source }}</td>
+                    <td>{{ $row->data_class_dr }}</td>
+                    <td>{{ $row->data_class_dict }}</td>
+                    <td>{{ $row->child_table1 }}</td>
+                    <td>{{ $row->child_table2 }}</td>
+                    <td>{{ $row->description }}</td>
+                    <td>{{ $row->subsystem }}</td>
+                    <td>{{ $row->reciever }}</td>
+                    <td>{{ $row->wiki_link }}</td>
+                    <td>{{ $row->load_method }}</td>
+                    <td>{{ $row->last_updated_dev }}</td>
                 </tr>
             @endforeach
         </tbody>

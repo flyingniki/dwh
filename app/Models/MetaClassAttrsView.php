@@ -11,12 +11,12 @@ class MetaClassAttrsView extends Model
 
     protected $table = 'meta_class_attrs_v';
 
-    // public function classes()
-    // {
-    //     return $this->belongsTo(
-    //         MetaClassesView::class,
-    //         'data_class_id',
-    //         'data_class_id'
-    //     );
-    // }
+    public function metaClassesView()
+    {
+        return $this->belongsTo(
+            MetaClassesView::class,
+            'class_id',
+            'data_class_id'
+        );
+    }
 }

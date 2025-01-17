@@ -13,12 +13,12 @@ class MetaClassesView extends Model
 
     protected $table = 'meta_classes_v';
 
-    // public function attributes()
-    // {
-    //     return $this->hasMany(
-    //         MetaClassAttrsView::class,
-    //         'class_id',
-    //         'class_id'
-    //     );
-    // }
+    public function metaClassAttrsView()
+    {
+        return $this->hasMany(
+            MetaClassAttrsView::class,
+            'class_id',
+            'data_class_id'
+        );
+    }
 }

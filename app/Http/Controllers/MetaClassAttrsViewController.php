@@ -10,14 +10,14 @@ class MetaClassAttrsViewController extends Controller
 {
     public function showAllAttrs()
     {
-        $attrs = MetaClassAttrsView::all()->toArray();
+        $attrs = MetaClassAttrsView::all();
 
         return view('attributes', compact('attrs'));
     }
 
-    public function showClassAttr($classId)
+    public function showClassAttr(string $classId)
     {
-        $attrs = MetaClassAttrsView::all()->where('class_id', $classId)->toArray();
+        $attrs = MetaClassAttrsView::where('class_id', $classId)->get();
 
         return view('attributes', compact('attrs'));
     }
