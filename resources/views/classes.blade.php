@@ -5,26 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DBData</title>
+    <title>Classes</title>
     @vite(['resources/css/app.css'])
 </head>
 
 <body>
     @csrf
-    <form action="{{ route('show') }}" method="get">
-        <input type="text" name="id" value="{{ $requestData['id'] }}" placeholder="ID">
-        <input type="text" name="name" value="{{ $requestData['name'] }}" placeholder="Название">
+    <form action="{{ route('show.classes') }}" method="get">
+        <input type="text" name="id" value="{{ $requestData['id'] ?? '' }}" placeholder="ID">
+        <input type="text" name="name" value="{{ $requestData['name'] ?? '' }}" placeholder="Название">
         <select name="source" id="source">
             <option value="">Источник</option>
             @foreach ($sources as $source)
-                <option value="{{ $source->data_class_source }}" @selected($requestData['source'] === $source->data_class_source)>
+                <option value="{{ $source->data_class_source }}"
+                    @if (isset($requestData['source'])) @selected($requestData['source'] === $source->data_class_source) @endif>
                     {{ $source->data_class_source }}</option>
             @endforeach
         </select>
         <button type="submit">Показать</button>
     </form>
     <table class="table">
-        <caption class="caption"></caption>
+        <caption class="caption">Таблица классов</caption>
         <thead>
             <th>ID</th>
             <th>Название</th>
@@ -44,7 +45,7 @@
         <tbody class="tbody">
             @foreach ($data as $row)
                 <tr>
-                    <td>{{ $row['data_class_id'] }}</td>
+                    <td><a href="attrs/{{ $row['data_class_id'] }}">{{ $row['data_class_id'] }}</a></td>
                     <td>{{ $row['data_class_name'] }}</td>
                     <td>{{ $row['data_class_direct'] }}</td>
                     <td>{{ $row['data_class_source'] }}</td>

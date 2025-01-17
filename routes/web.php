@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\MetaClassesVViewController;
+use App\Http\Controllers\MetaClassAttrsViewController;
+use App\Http\Controllers\MetaClassesViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [MetaClassesVViewController::class, 'show'])->name('show');
+Route::get('/', [MetaClassesViewController::class, 'showClasses'])->name('show.classes');
+
+Route::get('attrs/', [MetaClassAttrsViewController::class, 'showAllAttrs'])->name('show.attrs');
+
+Route::get('attrs/{class}', [MetaClassAttrsViewController::class, 'showClassAttr'])->name('class.attr');
