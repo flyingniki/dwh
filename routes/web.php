@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MetaClassesViewController::class, 'showClasses'])->name('show.classes');
 
-Route::get('attrs/', [MetaClassAttrsViewController::class, 'showAllAttrs'])->name('show.attrs');
-
-Route::get('attrs/{class}', [MetaClassAttrsViewController::class, 'showClassAttr'])->name('class.attr');
+Route::controller(MetaClassAttrsViewController::class)->group(function () {
+    Route::get('attrs/', 'showAllAttrs')->name('show.attrs');
+    Route::get('attrs/{class}', 'showClassAttr')->name('class.attr');
+    Route::patch('attrs/{class}', 'updateClassAttr')->name('update.attr');
+});

@@ -1,18 +1,49 @@
 .container {
-    margin: 20px auto 50px;
+    margin: 0 50px;
 }
 
-.table {
-    border: 1px solid #7fa4a1;
-    width: 100%;
-    margin-bottom: 20px;
+.filters {
+    margin-bottom: 50px;
 }
 
-.table caption {
+.filters__title,
+.result__title {
+    margin: 0;
     font-size: 30px;
     font-weight: 700;
     margin-bottom: 20px;
     color: #3c7c91;
+}
+
+.result__title {
+    text-align: center;
+}
+
+.filters__input {
+    display: block;
+    border: 1px solid #7fa4a1;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #3d654e;
+}
+
+.filters__submit {
+    display: block;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #7fa4a1;
+    background-color: #7fa4a1;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.table {
+    border: 1px solid #7fa4a1;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .table th {
