@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\MetaClassAttrsViewRequest;
 use App\Models\MetaClassAttrsView;
+use App\Models\MetaClassesView;
 use Illuminate\Http\Request;
 
 class MetaClassAttrsViewController extends Controller
@@ -12,23 +12,14 @@ class MetaClassAttrsViewController extends Controller
     {
         $attrs = MetaClassAttrsView::all();
 
-        return view('attributes', compact('attrs'));
+        return view('all-attributes', compact('attrs'));
     }
 
-    public function showClassAttr(string $classId)
-    {
-        $attrs = MetaClassAttrsView::where('class_id', $classId)->get();
+    // public function showClassAttr($classId)
+    // {
+    //     // $classColumns = MetaClassesView::where('class_id', $classId)->get()->toArray();
+    //     $attrs = MetaClassAttrsView::where('class_id', $classId)->get();
 
-        return view('attributes', compact('attrs'));
-    }
-
-    public function updateClassAttr(MetaClassAttrsViewRequest $request, MetaClassAttrsView $metaClassAttrsView)
-    {
-        dd($request->all());
-        if ($request->isMethod('patch')) {
-            return redirect()->route('class.attr')->with('message', 'Запись успешно добавлена!');
-        } else {
-            return redirect()->route('class.attr')->with('error', 'Ошибка добавления!');
-        }
-    }
+    //     return view('attributes', compact('attrs'));
+    // }
 }

@@ -12,6 +12,8 @@ class MetaClassesView extends Model
     use Filterable;
 
     protected $table = 'meta_classes_v';
+    protected $primaryKey = 'data_class_id';
+    protected $keyType = 'string';
 
     public function metaClassAttrsView()
     {

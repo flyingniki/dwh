@@ -52,7 +52,7 @@
                     @foreach ($data as $row)
                         <tr>
                             <td><a target="_blank"
-                                    href="{{ route('class.attr', ['class' => $row->data_class_id]) }}">{{ $row->data_class_id }}</a>
+                                    href="{{ route('detail.class', ['metaClassesView' => $row->data_class_id]) }}">{{ $row->data_class_id }}</a>
                             </td>
                             <td>{{ $row->data_class_name }}</td>
                             <td>{{ $row->data_class_direct }}</td>
