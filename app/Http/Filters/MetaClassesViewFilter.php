@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Builder;
 class MetaClassesViewFilter extends QueryFilter
 {
     /**
-     * @param int $id
+     * @param string $id
      */
-    public function id(int $dataClassId)
+    public function id(string $dataClassId)
     {
         $this->builder->where('data_class_id', $dataClassId);
     }
