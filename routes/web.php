@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::controller(MetaClassesViewController::class)->group(function () {
     Route::get('/classes', 'showClasses')->name('show.classes');
     Route::get('/classes/{metaClassesView}', 'detailClass')->name('detail.class');
-    Route::get('/classes/edit', 'editClassAttr')->name('edit.attr');
-    Route::patch('/classes/{dataClassId}/update', 'updateClassAttr')->name('update.attr');
+    Route::get('/classes/{metaClassesView}/edit', 'editClassAttr')->name('edit.class');
+    Route::patch('/classes/{metaClassesView}/update', 'updateClassAttr')->name('update.class');
 });
 
 Route::controller(MetaClassAttrsViewController::class)->group(function () {

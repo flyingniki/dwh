@@ -11,22 +11,30 @@
 
 <body>
     <div class="container">
-        <section class="filters">
-            <h2 class="filters__title">Фильтры</h2>
-            <form class="filters__form" action="{{ route('show.classes') }}" method="get">
-                <input class="filters__input" type="text" name="id" value="{{ $requestData['id'] ?? '' }}"
-                    placeholder="ID">
-                <input class="filters__input" type="text" name="name" value="{{ $requestData['name'] ?? '' }}"
-                    placeholder="Название">
-                <select class="filters__input" name="source" id="source">
-                    <option value="">Источник</option>
-                    @foreach ($sources as $source)
-                        <option value="{{ $source->data_class_source }}"
-                            @if (isset($requestData['source'])) @selected($requestData['source'] === $source->data_class_source) @endif>
-                            {{ $source->data_class_source }}</option>
-                    @endforeach
-                </select>
-                <button class="filters__submit" type="submit">Показать</button>
+        <section class="fields">
+            <h2 class="fields__title">Фильтры</h2>
+            <form class="fields__form" action="{{ route('show.classes') }}" method="get">
+                <div class="fields__item">
+                    <label class="fields__label" for="data_class_id">ID</label>
+                    <input class="fields__input" type="text" name="id" id="data_class_id" value="{{ $requestData['data_class_id'] ?? '' }}">
+                </div>
+                <div class="fields__item">
+                    <label class="fields__label" for="data_class_name">Название</label>
+                    <input class="fields__input" type="text" name="name" id="data_class_name" value="{{ $requestData['data_class_name'] ?? '' }}">
+                </div>
+                <div class="fields__item">
+                    <label class="fields__label" for="data_class_source">Источник</label>
+                    <select class="fields__input" name="source" id="data_class_source">
+                        <option value="">Все</option>
+                        @foreach ($sources as $source)
+                            <option value="{{ $source->data_class_source }}"
+                                @if (isset($requestData['data_class_source'])) @selected($requestData['data_class_source'] === $source->data_class_source) @endif>
+                                {{ $source->data_class_source }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <button class="fields__submit" type="submit">Показать</button>
             </form>
         </section>
         <section class="result">

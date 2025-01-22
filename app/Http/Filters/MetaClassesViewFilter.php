@@ -9,17 +9,17 @@ class MetaClassesViewFilter extends QueryFilter
     /**
      * @param int $id
      */
-    public function id(int $id)
+    public function id(int $dataClassId)
     {
-        $this->builder->where('data_class_id', $id);
+        $this->builder->where('data_class_id', $dataClassId);
     }
 
     /**
      * @param string $name
      */
-    public function name(string $name)
+    public function name(string $dataClassName)
     {
-        $words = array_filter(explode(' ', $name));
+        $words = array_filter(explode(' ', $dataClassName));
 
         $this->builder->where(function (Builder $query) use ($words) {
             foreach ($words as $word) {
@@ -28,8 +28,11 @@ class MetaClassesViewFilter extends QueryFilter
         });
     }
 
-    public function source(string $source)
+    /**
+     * @param string $dataClassSource
+     */
+    public function source(string $dataClassSource)
     {
-        $this->builder->where('data_class_source', $source);
+        $this->builder->where('data_class_source', $dataClassSource);
     }
 }

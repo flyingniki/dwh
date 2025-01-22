@@ -24,13 +24,18 @@ class MetaClassesViewController extends Controller
     {
         $classAttrs = MetaClassAttrsView::where('class_id', $metaClassesView->data_class_id)->get();
 
-        return view('class-attributes', compact('metaClassesView', 'classAttrs'));
+        return view('detail-class', compact('metaClassesView', 'classAttrs'));
     }
 
-    // public function editClassAttr(string $id)
-    // {
-    //     return view('attributes.edit', ['data_class_id' => $id]);
-    // }
+    public function editClassAttr(MetaClassesView $metaClassesView)
+    {
+        return view('edit-class', compact('metaClassesView'));
+    }
 
-    // public function updateClassAttr(MetaClassesViewRequest $metaClassesViewRequest) {}
+    public function updateClassAttr(MetaClassesViewRequest $metaClassesViewRequest, MetaClassesView $metaClassesView)
+    {
+        $metaClassesView->update($metaClassesViewRequest->validated());
+
+        dd($metaClassesView);
+    }
 }

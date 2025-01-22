@@ -2,11 +2,23 @@
     margin: 0 50px;
 }
 
-.filters {
+.fields {
     margin-bottom: 50px;
 }
 
-.filters__title,
+.fields__item {
+    margin-bottom: 15px;
+}
+
+.fields__label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #3c7c91;
+}
+
+.fields__title,
 .result__title {
     margin: 0;
     font-size: 30px;
@@ -19,16 +31,15 @@
     text-align: center;
 }
 
-.filters__input {
+.fields__input {
     display: block;
     border: 1px solid #7fa4a1;
-    margin-bottom: 10px;
     padding: 5px;
     border-radius: 5px;
     color: #3d654e;
 }
 
-.filters__submit {
+.fields__submit {
     display: block;
     box-sizing: border-box;
     border-radius: 5px;
