@@ -18,6 +18,13 @@
     color: #3c7c91;
 }
 
+.fields__header {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    margin-bottom: 20px;
+}
+
 .fields__title,
 .result__title {
     margin: 0;
@@ -48,6 +55,10 @@
     background-color: #7fa4a1;
     cursor: pointer;
     color: #ffffff;
+}
+
+.fields__img {
+    width: 50px;
 }
 
 .table {
@@ -87,4 +98,22 @@
 
 .table tr:nth-child(even) {
     background: #f7f7f7;
+}
+
+.table .btn {
+    display: block;
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: rgb(74, 81, 200);
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.alert {
+    padding: 10px 0;
+    margin-bottom: 10px;
+    color: rgb(6, 143, 26);
+    font-size: 18px;
 }

@@ -36,6 +36,6 @@ class MetaClassesViewController extends Controller
     {
         $metaClassesView->update($metaClassesViewRequest->validated());
 
-        dd($metaClassesView);
+        return redirect()->back()->with('status', 'Class updated successfully!');
     }
 }
