@@ -14,12 +14,4 @@ class MetaClassAttrsViewController extends Controller
 
         return view('all-attributes', compact('attrs'));
     }
-
-    // public function showClassAttr($classId)
-    // {
-    //     // $classColumns = MetaClassesView::where('class_id', $classId)->get()->toArray();
-    //     $attrs = MetaClassAttrsView::where('class_id', $classId)->get();
-
-    //     return view('attributes', compact('attrs'));
-    // }
 }

@@ -11,7 +11,7 @@
             <a class="fields__link" href="{{ route('show.classes') }}">
                 <img class="fields__img" src="{{ Vite::asset('/resources/img/back.png') }}" alt="Back">
             </a>
-            <h1 class="fields__title">Изменить свойства класса {{ $metaClassesView->class_id }}:
+            <h1 class="fields__title">Форма редактирования класса {{ $metaClassesView->class_id }}:
                 {{ $metaClassesView->name }}</h1>
         </div>
         <form class="fields__form" action="{{ route('update.class', $metaClassesView) }}" method="post">

@@ -11,7 +11,7 @@ class MetaClassesViewFilter extends QueryFilter
      */
     public function id(string $dataClassId)
     {
-        $this->builder->where('class_id', $dataClassId);
+        $this->builder->where('class_id', 'like', "$dataClassId%");
     }
 
     /**

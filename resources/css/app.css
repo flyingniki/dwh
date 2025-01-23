@@ -24,6 +24,12 @@
     column-gap: 20px;
 }
 
+.fields__form {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+}
+
 .fields__title,
 .result__title {
     margin: 0;
@@ -39,15 +45,18 @@
 
 .fields__input {
     display: block;
+    box-sizing: border-box;
     border: 1px solid #7fa4a1;
     padding: 5px;
     border-radius: 5px;
     color: #3d654e;
+    height: 30px;
 }
 
 .fields__submit {
     display: block;
     box-sizing: border-box;
+    height: 32px;
     border-radius: 5px;
     padding: 5px;
     border: 1px solid #7fa4a1;
@@ -71,16 +80,16 @@
 .table th {
     text-align: center;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 18px;
     padding: 5px;
-    background: #efefef;
+    background: #a6a6a6;
     border: 1px solid #dddddd;
-    color: #3c7c91;
+    color: #323232;
 }
 
 .table td {
     color: #3d654e;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     padding: 5px;
     border: 1px solid #eee;
@@ -90,15 +99,16 @@
 
 .table a {
     text-decoration: none;
-    color: #3c7c91;
+    color: #1b7998;
+    font-weight: 600;
 }
 
 .table tr:nth-child(odd) {
-    background: #fff;
+    background: #f2f2f2;
 }
 
 .table tr:nth-child(even) {
-    background: #f7f7f7;
+    background: #ffffff;
 }
 
 .table .btn {
