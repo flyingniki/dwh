@@ -9,7 +9,7 @@
     <section class="fields">
         <div class="fields__header">
             <a class="fields__link" href="{{ route('show.classes') }}">
-                <img class="fields__img" src="{{ Vite::asset('/resources/img/back.png') }}" alt="Back">
+                <img class="fields__img" src="{{ Vite::asset('resources/img/back.png') }}" alt="Back">
             </a>
             <h1 class="fields__title">Форма редактирования класса {{ $metaClassesView->class_id }}:
                 {{ $metaClassesView->name }}</h1>
