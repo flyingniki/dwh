@@ -11,7 +11,7 @@ class MetaClassesViewFilter extends QueryFilter
      */
     public function id(string $dataClassId)
     {
-        $this->builder->where('data_class_id', $dataClassId);
+        $this->builder->where('class_id', $dataClassId);
     }
 
     /**
@@ -23,7 +23,7 @@ class MetaClassesViewFilter extends QueryFilter
 
         $this->builder->where(function (Builder $query) use ($words) {
             foreach ($words as $word) {
-                $query->where('data_class_name', 'like', "%$word%");
+                $query->where('name', 'like', "%$word%");
             }
         });
     }
@@ -33,6 +33,6 @@ class MetaClassesViewFilter extends QueryFilter
      */
     public function source(string $dataClassSource)
     {
-        $this->builder->where('data_class_source', $dataClassSource);
+        $this->builder->where('source', $dataClassSource);
     }
 }

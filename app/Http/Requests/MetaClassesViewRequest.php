@@ -22,11 +22,11 @@ class MetaClassesViewRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'data_class_name' => 'string|nullable',
-            'data_class_direct' => 'string|nullable',
-            'data_class_source' => 'string|nullable',
-            'data_class_dr' => 'string|nullable',
-            'data_class_dict' => 'string|nullable',
+            'name' => 'string|nullable',
+            'in_out' => 'string|nullable',
+            'source' => 'string|nullable',
+            'stage_table' => 'string|nullable',
+            'core_table' => 'string|nullable',
             'child_table1' => 'string|nullable',
             'child_table2' => 'string|nullable',
             'description' => 'string|nullable',

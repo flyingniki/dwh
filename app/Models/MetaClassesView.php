@@ -13,16 +13,16 @@ class MetaClassesView extends Model
 
     protected $table = 'meta_classes_v';
 
-    protected $primaryKey = 'data_class_id';
+    protected $primaryKey = 'class_id';
 
     protected $keyType = 'string';
 
     protected $fillable = [
-        'data_class_name',
-        'data_class_direct',
-        'data_class_source',
-        'data_class_dr',
-        'data_class_dict',
+        'name',
+        'in_out',
+        'source',
+        'stage_table',
+        'core_table',
         'child_table1',
         'child_table2',
         'description',
@@ -41,7 +41,7 @@ class MetaClassesView extends Model
         return $this->hasMany(
             MetaClassAttrsView::class,
             'class_id',
-            'data_class_id'
+            'class_id'
         );
     }
 }

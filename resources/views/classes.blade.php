@@ -19,9 +19,9 @@
                 <select class="fields__input" name="source" id="source">
                     <option value="">Все</option>
                     @foreach ($sources as $source)
-                        <option value="{{ $source->data_class_source }}"
-                            @if (isset($requestData['source'])) @selected($requestData['source'] === $source->data_class_source) @endif>
-                            {{ $source->data_class_source }}</option>
+                        <option value="{{ $source->source }}"
+                            @if (isset($requestData['source'])) @selected($requestData['source'] === $source->source) @endif>
+                            {{ $source->source }}</option>
                     @endforeach
                 </select>
             </div>
@@ -37,8 +37,8 @@
                 <th>Название</th>
                 <th>Направление</th>
                 <th>Источник</th>
-                <th>data_class_dr</th>
-                <th>data_class_dict</th>
+                <th>stage_table</th>
+                <th>core_table</th>
                 <th>child_table1</th>
                 <th>child_table2</th>
                 <th>Описание</th>
@@ -54,13 +54,13 @@
                     <tr>
                         <td>
                             <a target="_blank"
-                                href="{{ route('detail.class', ['metaClassesView' => $row->data_class_id]) }}">{{ $row->data_class_id }}</a>
+                                href="{{ route('detail.class', ['metaClassesView' => $row->class_id]) }}">{{ $row->class_id }}</a>
                         </td>
-                        <td>{{ $row->data_class_name }}</td>
-                        <td>{{ $row->data_class_direct }}</td>
-                        <td>{{ $row->data_class_source }}</td>
-                        <td>{{ $row->data_class_dr }}</td>
-                        <td>{{ $row->data_class_dict }}</td>
+                        <td>{{ $row->name }}</td>
+                        <td>{{ $row->in_out }}</td>
+                        <td>{{ $row->source }}</td>
+                        <td>{{ $row->stage_table }}</td>
+                        <td>{{ $row->core_table }}</td>
                         <td>{{ $row->child_table1 }}</td>
                         <td>{{ $row->child_table2 }}</td>
                         <td>{{ $row->description }}</td>
@@ -70,7 +70,7 @@
                         <td>{{ $row->load_method }}</td>
                         <td>{{ $row->last_updated_dev }}</td>
                         <td>
-                            <a class="btn btn--edit" href="{{ route('edit.class', $row->data_class_id) }}">Edit</a>
+                            <a class="btn btn--edit" href="{{ route('edit.class', $row->class_id) }}">Edit</a>
                         </td>
                     </tr>
                 @endforeach

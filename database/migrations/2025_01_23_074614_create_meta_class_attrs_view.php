@@ -26,9 +26,12 @@ return new class extends Migration
                         a.is_mandatory,
                         a.core_attr,
                         a.core_attr_prev
-                    FROM ((meta.classes c
-                        LEFT JOIN meta.class_confs cc ON (((c.class_id = cc.class_id) AND (cc.env_id = 2))))
-                        LEFT JOIN meta.attrs a ON (((cc.conf_id = a.conf_id) AND (c.class_id = a.class_id))))
+                    FROM
+                        (
+                            (classes c
+                            LEFT JOIN class_confs cc ON (((c.class_id = cc.class_id) AND (cc.env_id = 2))))
+                            LEFT JOIN attrs a ON (((cc.conf_id = a.conf_id) AND (c.class_id = a.class_id)))
+                        )
                     ORDER BY (\"substring\"(c.class_id, '^\d+\.?\d+'::text))::double precision, c.class_id, a.ord;"
         );
     }

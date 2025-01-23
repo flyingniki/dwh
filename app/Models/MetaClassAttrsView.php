@@ -22,7 +22,7 @@ class MetaClassAttrsView extends Model
         return $this->belongsTo(
             MetaClassesView::class,
             'class_id',
-            'data_class_id'
+            'class_id'
         );
     }
 }

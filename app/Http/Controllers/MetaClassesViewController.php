@@ -14,7 +14,7 @@ class MetaClassesViewController extends Controller
     public function showClasses(MetaClassesViewFilter $filter, Request $request)
     {
         $data = MetaClassesView::filter($filter)->get();
-        $sources = DB::table('meta_classes_v')->distinct('data_class_source')->get('data_class_source');
+        $sources = DB::table('meta_classes_v')->distinct('source')->get('source');
         $requestData = $request->all();
 
         return view('classes', compact('data', 'sources', 'requestData'));
@@ -22,7 +22,7 @@ class MetaClassesViewController extends Controller
 
     public function detailClass(MetaClassesView $metaClassesView)
     {
-        $classAttrs = MetaClassAttrsView::where('class_id', $metaClassesView->data_class_id)->get();
+        $classAttrs = MetaClassAttrsView::where('class_id', $metaClassesView->class_id)->get();
 
         return view('detail-class', compact('metaClassesView', 'classAttrs'));
     }
