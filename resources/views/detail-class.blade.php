@@ -22,11 +22,6 @@
                 <input class="fields__input" type="text" name="name" id="name"
                     value="{{ $metaClassesView->name ?? '' }}">
             </div>
-            {{-- <div class="fields__item">
-                <label class="fields__label" for="in_out">Направление</label>
-                <input class="fields__input" type="text" name="in_out" id="in_out"
-                    value="{{ $metaClassesView->in_out ?? '' }}">
-            </div> --}}
             <div class="fields__item">
                 <label class="fields__label" for="source">Источник</label>
                 <select class="fields__input" name="source" id="source">
