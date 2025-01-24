@@ -24,10 +24,14 @@
     column-gap: 20px;
 }
 
-.fields__form {
+.fields__form--filter {
     display: flex;
     column-gap: 20px;
     align-items: center;
+}
+
+.fields__form--edit {
+    display: block;
 }
 
 .fields__title,
@@ -51,6 +55,11 @@
     border-radius: 5px;
     color: #3d654e;
     height: 30px;
+    width: 200px;
+}
+
+.fields__input--textarea {
+    height: 100px;
 }
 
 .fields__submit {
@@ -77,7 +86,7 @@
     margin-bottom: 20px;
 }
 
-.table th {
+.table__th {
     text-align: center;
     font-weight: 700;
     font-size: 18px;
@@ -87,39 +96,45 @@
     color: #323232;
 }
 
-.table td {
+.table__td {
     color: #3d654e;
     font-size: 16px;
     font-weight: 500;
     padding: 5px;
     border: 1px solid #eee;
-    max-width: 120px;
-    word-wrap: break-word;
 }
 
-.table a {
+.table__td--wide {
+    white-space: nowrap;
+    width: 1%;
+}
+
+.table__link {
     text-decoration: none;
     color: #1b7998;
     font-weight: 600;
 }
 
-.table tr:nth-child(odd) {
+.table__tr:nth-child(odd) {
     background: #f2f2f2;
 }
 
-.table tr:nth-child(even) {
+.table__tr:nth-child(even) {
     background: #ffffff;
 }
 
-.table .btn {
+.btn {
     display: block;
     box-sizing: border-box;
     margin: 5px;
     padding: 5px 10px;
-    background-color: rgb(74, 81, 200);
     color: #ffffff;
     border-radius: 5px;
     font-size: 16px;
+}
+
+.btn--edit {
+    background-color: rgb(74, 81, 200);
 }
 
 .alert {
