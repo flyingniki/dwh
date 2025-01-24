@@ -44,7 +44,7 @@
                 <th class="table__th">Wiki</th>
                 <th class="table__th">Метод загрузки</th>
                 {{-- <th class="table__th">last_updated_dev</th> --}}
-                <th class="table__th">Controls</th>
+                {{-- <th class="table__th">Controls</th> --}}
             </thead>
             <tbody class="table__body">
                 @foreach ($data as $row)
@@ -57,18 +57,18 @@
                         {{-- <td class="table__td">{{ $row->in_out }}</td> --}}
                         <td class="table__td">{{ $row->source }}</td>
                         <td class="table__td">{{ $row->reciever }}</td>
-                        <td class="table__td">{{ $row->stage_table }}</td>
+                        <td class="table__td table__td--wide">{{ $row->stage_table }}</td>
                         <td class="table__td table__td--wide">{{ $row->core_table }}</td>
                         {{-- <td class="table__td">{{ $row->child_table1 }}</td>
                         <td class="table__td">{{ $row->child_table2 }}</td> --}}
-                        <td class="table__td">{{ $row->description }}</td>
+                        <td class="table__td table__td--wide">{{ $row->description }}</td>
                         <td class="table__td">{{ $row->subsystem }}</td>
                         <td class="table__td">{{ $row->wiki_link }}</td>
                         <td class="table__td">{{ $row->load_method }}</td>
                         {{-- <td class="table__td">{{ $row->last_updated_dev }}</td> --}}
-                        <td class="table__td">
-                            <a class="btn table__link btn--edit" href="{{ route('edit.class', $row->class_id) }}">Edit</a>
-                        </td>
+                        {{-- <td class="table__td">
+                            <a class="btn table__link btn--edit" target="_blank" href="{{ route('edit.class', $row->class_id) }}">Edit</a>
+                        </td> --}}
                     </tr>
                 @endforeach
             </tbody>

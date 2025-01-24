@@ -21,7 +21,7 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('edit-class', function ($view) {
+        View::composer(['edit-class', 'detail-class'], function ($view) {
             $view->with(['sources' => DB::table('meta_classes_v')->distinct('source')->get('source')]);
         });
     }
