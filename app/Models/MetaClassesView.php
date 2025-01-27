@@ -31,7 +31,6 @@ class MetaClassesView extends Model
         'wiki_link',
         'load_method',
         'last_updated_dev'
-
     ];
 
     public $timestamps = false;

@@ -64,7 +64,8 @@
                         <td class="table__td table__td--wide">{{ $row->description }}</td>
                         <td class="table__td">{{ $row->subsystem }}</td>
                         <td class="table__td">
-                            <a class="table__link" target="_blank" href="{{ $row->wiki_link }}">c_{{ $row->class_id }}</a>
+                            <a class="table__link" target="_blank"
+                                href="{{ $row->wiki_link ?? '' }}">{{ $row->wiki_link ? 'C' . $row->class_id : '' }}</a>
                         </td>
                         <td class="table__td">{{ $row->load_method }}</td>
                         {{-- <td class="table__td">{{ $row->last_updated_dev }}</td> --}}
