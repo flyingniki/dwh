@@ -1,0 +1,123 @@
+.container
+    margin: 0 50px
+
+.fields
+    margin-bottom: 50px
+
+    &__item
+        margin-bottom: 15px
+
+    &__label
+        display: block
+        font-size: 14px
+        font-weight: 500
+        margin-bottom: 5px
+        color: #3c7c91
+
+    &__header
+        display: flex
+        align-items: center
+        column-gap: 20px
+
+    &__form--filter
+        display: flex
+        column-gap: 20px
+        align-items: center
+
+    &__form--edit
+        display: block
+
+    &__input
+        display: block
+        box-sizing: border-box
+        border: 1px solid #7fa4a1
+        padding: 5px
+        border-radius: 5px
+        color: #3d654e
+        height: 30px
+        width: 200px
+
+        &--textarea
+            height: 100px
+
+    &__submit
+        display: block
+        box-sizing: border-box
+        height: 32px
+        border-radius: 5px
+        padding: 5px
+        border: 1px solid #7fa4a1
+        background-color: #7fa4a1
+        cursor: pointer
+        color: #ffffff
+
+    &__img
+        width: 25px
+        margin-bottom: 20px
+
+.fields__title,
+.result__title
+    margin: 0
+    font-size: 30px
+    font-weight: 700
+    margin-bottom: 20px
+    color: #3c7c91
+
+    &
+        text-align: center
+
+.table
+    border: 1px solid #7fa4a1
+    border-radius: 5px
+    width: 100%
+    margin-bottom: 20px
+
+    &__th
+        text-align: center
+        font-weight: 700
+        font-size: 18px
+        padding: 5px
+        background: #a6a6a6
+        border: 1px solid #dddddd
+        color: #323232
+
+    &__td
+        color: #3d654e
+        font-size: 16px
+        font-weight: 500
+        padding: 2px
+        border: 1px solid #eee
+        max-width: 150px
+    /* max-height: 10px; */
+
+    &__td--wide
+        min-width: 300px
+        word-wrap: break-word
+
+    &__link
+        text-decoration: none
+        color: #1b7998
+        font-weight: 600
+
+    &__tr:nth-child(odd)
+        background: #f2f2f2
+
+    &__tr:nth-child(even)
+        background: #ffffff
+
+.btn
+    display: block
+    box-sizing: border-box
+    padding: 5px 10px
+    color: #ffffff
+    border-radius: 5px
+    font-size: 16px
+
+    &--edit
+        background-color: rgb(74, 81, 200)
+
+.alert
+    padding: 10px 0
+    margin-bottom: 10px
+    color: rgb(6, 143, 26)
+    font-size: 18px
