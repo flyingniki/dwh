@@ -19,13 +19,14 @@
         align-items: center
         column-gap: 20px
 
-    &__form--filter
-        display: flex
-        column-gap: 20px
-        align-items: center
+    &__form
+        &--filter
+            display: flex
+            column-gap: 20px
+            align-items: center
 
-    &__form--edit
-        display: block
+        &--edit
+            display: block
 
     &__input
         display: block
@@ -62,15 +63,14 @@
     font-weight: 700
     margin-bottom: 20px
     color: #3c7c91
-
-    &
-        text-align: center
+    text-align: center
 
 .table
     border: 1px solid #7fa4a1
     border-radius: 5px
     width: 100%
     margin-bottom: 20px
+    border-collapse: collapse
 
     &__th
         text-align: center
@@ -88,22 +88,28 @@
         padding: 2px
         border: 1px solid #eee
         max-width: 150px
-    /* max-height: 10px; */
 
-    &__td--wide
-        min-width: 300px
-        word-wrap: break-word
+        &--wide
+            min-width: 300px
+            word-wrap: break-word
 
     &__link
         text-decoration: none
         color: #1b7998
         font-weight: 600
 
-    &__tr:nth-child(odd)
-        background: #f2f2f2
+    &__tr
+        &:nth-child(odd)
+            background: #f2f2f2
 
-    &__tr:nth-child(even)
-        background: #ffffff
+            & .table__td--filled
+                background-color: #dfdfdf
+
+        &:nth-child(even)
+            background: #ffffff
+
+            & .table__td--filled
+                background-color: #f3f3f3
 
 .btn
     display: block

@@ -40,11 +40,10 @@
                 {{-- <th class="table__th">child_table1</th>
                 <th class="table__th">child_table2</th> --}}
                 <th class="table__th">Описание</th>
-                <th class="table__th">subsystem</th>
+                <th class="table__th">Subsystem</th>
                 <th class="table__th">Wiki</th>
                 <th class="table__th">Метод загрузки</th>
                 {{-- <th class="table__th">last_updated_dev</th> --}}
-                {{-- <th class="table__th">Controls</th> --}}
             </thead>
             <tbody class="table__body">
                 @foreach ($data as $row)
@@ -69,9 +68,6 @@
                         </td>
                         <td class="table__td">{{ $row->load_method }}</td>
                         {{-- <td class="table__td">{{ $row->last_updated_dev }}</td> --}}
-                        {{-- <td class="table__td">
-                            <a class="btn table__link btn--edit" target="_blank" href="{{ route('edit.class', $row->class_id) }}">Edit</a>
-                        </td> --}}
                     </tr>
                 @endforeach
             </tbody>

@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-@if (session('status'))
+    @if (session('status'))
         <div class="alert">
             {{ session('status') }}
         </div>
@@ -61,44 +61,50 @@
         <h1 class="result__title">Аттрибуты класса</h1>
         <table class="table result__table">
             <thead class="table__head">
-                <th class="table__th">class_id</th>
-                <th class="table__th">subclass_id</th>
-                <th class="table__th">subclass_ord</th>
-                <th class="table__th">from_ord</th>
-                <th class="table__th">to_ord</th>
-                <th class="table__th">row_ord</th>
-                <th class="table__th">from_id</th>
-                <th class="table__th">from_name</th>
-                <th class="table__th">from_type</th>
-                <th class="table__th">from_descr</th>
-                <th class="table__th">from_is_subclass</th>
-                <th class="table__th">to_id</th>
-                <th class="table__th">to_name</th>
-                <th class="table__th">to_type</th>
-                <th class="table__th">to_descr</th>
-                <th class="table__th">to_is_pk</th>
-                <th class="table__th">to_is_mandatory</th>
+                {{-- <th class="table__th">class_id</th> --}}
+                {{-- <th class="table__th">subclass_id</th> --}}
+                {{-- <th class="table__th">subclass_ord</th> --}}
+                {{-- <th class="table__th">from_ord</th> --}}
+                {{-- <th class="table__th">to_ord</th> --}}
+                {{-- <th class="table__th">row_ord</th> --}}
+                {{-- <th class="table__th">from_id</th> --}}
+                <th class="table__th" title="from_name">Аттрибут</th>
+                <th class="table__th" title="from_type">Тип</th>
+                <th class="table__th" title="from_descr">Описание</th>
+                <th class="table__th" title="from_comments">Комментарии</th>
+                {{-- <th class="table__th">from_is_subclass</th> --}}
+                {{-- <th class="table__th">to_id</th> --}}
+                <th class="table__th" title="to_name">Attr</th>
+                <th class="table__th" title="to_type">Type</th>
+                <th class="table__th" title="to_descr">Descr</th>
+                <th class="table__th" title="to_is_pk">PK</th>
+                <th class="table__th" title="to_is_mandatory">NN</th>
             </thead>
             <tbody class="table__body">
                 @foreach ($classAttrs as $row)
                     <tr class="table__tr">
-                        <td class="table__td">{{ $row->class_id }}</td>
-                        <td class="table__td">{{ $row->subclass_id }}</td>
-                        <td class="table__td">{{ $row->subclass_ord }}</td>
-                        <td class="table__td">{{ $row->from_ord }}</td>
+                        {{-- <td class="table__td">{{ $row->class_id }}</td> --}}
+                        {{-- <td class="table__td">{{ $row->subclass_id }}</td> --}}
+                        {{-- <td class="table__td">{{ $row->subclass_ord }}</td> --}}
+                        {{-- <td class="table__td">{{ $row->from_ord }}</td>
                         <td class="table__td">{{ $row->to_ord }}</td>
-                        <td class="table__td">{{ $row->row_ord }}</td>
-                        <td class="table__td">{{ $row->from_id }}</td>
-                        <td class="table__td">{{ $row->from_name }}</td>
+                        <td class="table__td">{{ $row->row_ord }}</td> --}}
+                        {{-- <td class="table__td">{{ $row->from_id }}</td> --}}
+                        {{-- TODO href --}}
+                        <td class="table__td">
+                            <a class="table__link" target="_blank"
+                                href="{{ $row->subclass_id ? 'link' : 'no_link' }}">{{ $row->from_name }}</a>
+                        </td>
                         <td class="table__td">{{ $row->from_type }}</td>
                         <td class="table__td">{{ $row->from_descr }}</td>
-                        <td class="table__td">{{ $row->from_is_subclass }}</td>
-                        <td class="table__td">{{ $row->to_id }}</td>
-                        <td class="table__td">{{ $row->to_name }}</td>
-                        <td class="table__td">{{ $row->to_type }}</td>
-                        <td class="table__td">{{ $row->to_descr }}</td>
-                        <td class="table__td">{{ $row->to_is_pk }}</td>
-                        <td class="table__td">{{ $row->to_is_mandatory }}</td>
+                        <td class="table__td">{{ $row->from_comments }}</td>
+                        {{-- <td class="table__td">{{ $row->from_is_subclass }}</td> --}}
+                        {{-- <td class="table__td">{{ $row->to_id }}</td> --}}
+                        <td class="table__td table__td--filled">{{ $row->to_name }}</td>
+                        <td class="table__td table__td--filled">{{ $row->to_type }}</td>
+                        <td class="table__td table__td--filled">{{ $row->to_descr }}</td>
+                        <td class="table__td table__td--filled">{{ $row->to_is_pk }}</td>
+                        <td class="table__td table__td--filled">{{ $row->to_is_mandatory }}</td>
                     </tr>
                 @endforeach
             </tbody>

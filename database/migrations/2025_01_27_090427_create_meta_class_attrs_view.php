@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('from_name');
             $table->string('from_type');
             $table->string('from_descr');
+            $table->string('from_comments');
             $table->boolean('from_is_subclass');
             $table->integer('to_id');
             $table->string('to_name');
