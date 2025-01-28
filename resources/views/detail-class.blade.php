@@ -103,8 +103,12 @@
                         <td class="table__td table__td--filled">{{ $row->to_name }}</td>
                         <td class="table__td table__td--filled">{{ $row->to_type }}</td>
                         <td class="table__td table__td--filled">{{ $row->to_descr }}</td>
-                        <td class="table__td table__td--filled">{{ $row->to_is_pk }}</td>
-                        <td class="table__td table__td--filled">{{ $row->to_is_mandatory }}</td>
+                        <td class="table__td table__td--filled">
+                            <input class="table__checkbox" type="checkbox" @checked($row->to_is_pk === true) disabled>
+                        </td>
+                        <td class="table__td table__td--filled">
+                            <input class="table__checkbox" type="checkbox" @checked($row->to_is_mandatory === true) disabled>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

@@ -111,6 +111,33 @@
             & .table__td--filled
                 background-color: #f3f3f3
 
+    &__checkbox
+        appearance: none
+        background: #fff
+        border: 2px solid #3c7c91
+        height: 1.5em
+        width: 1.5em
+        vertical-align: text-bottom
+        position: relative
+
+        &::before
+            content: ""
+            position: absolute
+            margin: auto
+            left: 0
+            right: 0
+            bottom: 0
+            overflow: hidden
+            top: 0
+
+        &:checked
+            &::before
+                border-right: 5px solid #3c7c91
+                border-bottom: 6px solid #3c7c91
+                height: 90%
+                width: 30%
+                transform: rotate(50deg) translateY(-20%) translateX(-10%)
+
 .btn
     display: block
     box-sizing: border-box
