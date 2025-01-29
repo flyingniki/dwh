@@ -1,3 +1,12 @@
+$title: #000000
+$text: #343434
+$table-border: #eeeeee
+$th-border: #cfcdcd
+$tr: #dfdfdf
+$tr-odd: #ffffff
+$tr-even: #f7f7f7
+$alert: rgb(6, 143, 26)
+
 .container
     margin: 0 50px
 
@@ -12,7 +21,7 @@
         font-size: 14px
         font-weight: 500
         margin-bottom: 5px
-        color: #3c7c91
+        color: $title
 
     &__header
         display: flex
@@ -25,21 +34,23 @@
             column-gap: 20px
             align-items: center
 
-        &--edit
-            display: block
+    &__container
+        display: flex
+        column-gap: 60px
 
     &__input
         display: block
         box-sizing: border-box
-        border: 1px solid #7fa4a1
+        border: 1px solid $table-border
         padding: 5px
         border-radius: 5px
-        color: #3d654e
+        color: $text
         height: 30px
         width: 200px
 
         &--textarea
             height: 100px
+            resize: none
 
     &__submit
         display: block
@@ -47,10 +58,10 @@
         height: 32px
         border-radius: 5px
         padding: 5px
-        border: 1px solid #7fa4a1
-        background-color: #7fa4a1
+        border: 1px solid $table-border
+        background-color: $tr
         cursor: pointer
-        color: #ffffff
+        color: $text
 
     &__img
         width: 25px
@@ -62,11 +73,11 @@
     font-size: 30px
     font-weight: 700
     margin-bottom: 20px
-    color: #3c7c91
+    color: $title
     text-align: center
 
 .table
-    border: 1px solid #7fa4a1
+    border: 1px solid $table-border
     border-radius: 5px
     width: 100%
     margin-bottom: 20px
@@ -74,19 +85,18 @@
 
     &__th
         text-align: center
-        font-weight: 700
+        font-weight: 600
         font-size: 18px
         padding: 5px
-        background: #a6a6a6
-        border: 1px solid #dddddd
-        color: #323232
+        border: 1px solid $th-border
+        color: $text
 
     &__td
-        color: #3d654e
+        color: $text
         font-size: 16px
-        font-weight: 500
+        font-weight: 400
         padding: 2px
-        border: 1px solid #eee
+        border: 1px solid $table-border
         max-width: 150px
 
         &--wide
@@ -95,26 +105,28 @@
 
     &__link
         text-decoration: none
-        color: #1b7998
-        font-weight: 600
+        color: $text
+        font-weight: 500
+        border-bottom: 1px solid $text
+
+        &:hover
+            color: $title
+            font-weight: 600
 
     &__tr
-        &:nth-child(odd)
-            background: #f2f2f2
+        background: $tr
 
-            & .table__td--filled
-                background-color: #dfdfdf
+        &--body
+            &:nth-child(odd)
+                background: $tr-odd
 
-        &:nth-child(even)
-            background: #ffffff
-
-            & .table__td--filled
-                background-color: #f3f3f3
+            &:nth-child(even)
+                background: $tr-even
 
     &__checkbox
         appearance: none
-        background: #fff
-        border: 2px solid #3c7c91
+        background: $tr-odd
+        border: 2px solid $title
         height: 1.5em
         width: 1.5em
         vertical-align: text-bottom
@@ -132,8 +144,8 @@
 
         &:checked
             &::before
-                border-right: 5px solid #3c7c91
-                border-bottom: 6px solid #3c7c91
+                border-right: 5px solid $title
+                border-bottom: 6px solid $title
                 height: 90%
                 width: 30%
                 transform: rotate(50deg) translateY(-20%) translateX(-10%)
@@ -142,15 +154,12 @@
     display: block
     box-sizing: border-box
     padding: 5px 10px
-    color: #ffffff
+    color: $tr-odd
     border-radius: 5px
     font-size: 16px
-
-    &--edit
-        background-color: rgb(74, 81, 200)
 
 .alert
     padding: 10px 0
     margin-bottom: 10px
-    color: rgb(6, 143, 26)
+    color: $alert
     font-size: 18px

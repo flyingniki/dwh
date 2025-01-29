@@ -30,24 +30,26 @@
         <h1 class="result__title">Реестр классов</h1>
         <table class="table result__table">
             <thead class="table__head">
-                <th class="table__th">ID</th>
-                <th class="table__th">Название</th>
-                {{-- <th class="table__th">Направление</th> --}}
-                <th class="table__th">Источник</th>
-                <th class="table__th">Получатель</th>
-                <th class="table__th">DWH(stage)</th>
-                <th class="table__th">DWH(core)</th>
-                {{-- <th class="table__th">child_table1</th>
+                <tr class="table__tr">
+                    <th class="table__th">ID</th>
+                    <th class="table__th">Название</th>
+                    {{-- <th class="table__th">Направление</th> --}}
+                    <th class="table__th">Источник</th>
+                    <th class="table__th">Получатель</th>
+                    <th class="table__th">DWH(stage)</th>
+                    <th class="table__th">DWH(core)</th>
+                    {{-- <th class="table__th">child_table1</th>
                 <th class="table__th">child_table2</th> --}}
-                <th class="table__th">Описание</th>
-                <th class="table__th">Subsystem</th>
-                <th class="table__th">Wiki</th>
-                <th class="table__th">Метод загрузки</th>
-                {{-- <th class="table__th">last_updated_dev</th> --}}
+                    <th class="table__th">Описание</th>
+                    <th class="table__th">Subsystem</th>
+                    <th class="table__th">Wiki</th>
+                    <th class="table__th">Метод загрузки</th>
+                    {{-- <th class="table__th">last_updated_dev</th> --}}
+                </tr>
             </thead>
             <tbody class="table__body">
                 @foreach ($data as $row)
-                    <tr class="table__tr">
+                    <tr class="table__tr table__tr--body">
                         <td class="table__td">
                             <a class="table__link" target="_blank"
                                 href="{{ route('detail.class', ['metaClassesView' => $row->class_id]) }}">{{ $row->class_id }}</a>

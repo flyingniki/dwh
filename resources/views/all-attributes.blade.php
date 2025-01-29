@@ -5,27 +5,29 @@
         <h1 class="result__title">Аттрибуты классов</h1>
         <table class="table result__table">
             <thead class="table__head">
-                <th class="table__th">class_id</th>
-                <th class="table__th">subclass_id</th>
-                <th class="table__th">subclass_ord</th>
-                <th class="table__th">from_ord</th>
-                <th class="table__th">to_ord</th>
-                <th class="table__th">row_ord</th>
-                <th class="table__th">from_id</th>
-                <th class="table__th">from_name</th>
-                <th class="table__th">from_type</th>
-                <th class="table__th">from_descr</th>
-                <th class="table__th">from_is_subclass</th>
-                <th class="table__th">to_id</th>
-                <th class="table__th">to_name</th>
-                <th class="table__th">to_type</th>
-                <th class="table__th">to_descr</th>
-                <th class="table__th">to_is_pk</th>
-                <th class="table__th">to_is_mandatory</th>
+                <tr class="table__tr">
+                    <th class="table__th">class_id</th>
+                    <th class="table__th">subclass_id</th>
+                    <th class="table__th">subclass_ord</th>
+                    <th class="table__th">from_ord</th>
+                    <th class="table__th">to_ord</th>
+                    <th class="table__th">row_ord</th>
+                    <th class="table__th">from_id</th>
+                    <th class="table__th">from_name</th>
+                    <th class="table__th">from_type</th>
+                    <th class="table__th">from_descr</th>
+                    <th class="table__th">from_is_subclass</th>
+                    <th class="table__th">to_id</th>
+                    <th class="table__th">to_name</th>
+                    <th class="table__th">to_type</th>
+                    <th class="table__th">to_descr</th>
+                    <th class="table__th">to_is_pk</th>
+                    <th class="table__th">to_is_mandatory</th>
+                </tr>
             </thead>
             <tbody class="table__body">
                 @foreach ($attrs as $row)
-                    <tr class="table__tr">
+                    <tr class="table__tr table__tr--body">
                         <td class="table__td">{{ $row->class_id }}</td>
                         <td class="table__td">{{ $row->subclass_id }}</td>
                         <td class="table__td">{{ $row->subclass_ord }}</td>
