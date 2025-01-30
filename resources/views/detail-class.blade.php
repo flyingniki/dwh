@@ -70,15 +70,15 @@
         <table class="table result__table">
             <thead class="table__head">
                 <tr class="table__tr">
-                    <th class="table__th" title="from_name">Аттрибут</th>
-                    <th class="table__th" title="from_type">Тип</th>
-                    <th class="table__th" title="from_descr">Описание</th>
-                    <th class="table__th" title="from_comments">Комментарии</th>
-                    <th class="table__th" title="to_name">Attr</th>
-                    <th class="table__th" title="to_type">Type</th>
-                    <th class="table__th" title="to_descr">Descr</th>
-                    <th class="table__th" title="to_is_pk">PK</th>
-                    <th class="table__th" title="to_is_mandatory">NN</th>
+                    <th class="table__th" title="src_name">Аттрибут</th>
+                    <th class="table__th" title="src_type">Тип</th>
+                    <th class="table__th" title="src_descr">Описание</th>
+                    <th class="table__th" title="src_comments">Комментарии</th>
+                    <th class="table__th" title="dwh_name">Attr</th>
+                    <th class="table__th" title="dwh_type">Type</th>
+                    <th class="table__th" title="dwh_descr">Descr</th>
+                    <th class="table__th" title="dwh_is_pk">PK</th>
+                    <th class="table__th" title="dwh_is_mandatory">NN</th>
                 </tr>
             </thead>
             <tbody class="table__body">
@@ -87,20 +87,20 @@
                         {{-- TODO href --}}
                         <td class="table__td">
                             <a class="table__link" target="_blank"
-                                href="{{ $row->subclass_id ? 'link' : 'no_link' }}">{{ $row->from_name }}</a>
+                                href="{{ $row->subclass_id ? 'link' : 'no_link' }}">{{ $row->src_name }}</a>
                         </td>
                         {{-- TODO href --}}
-                        <td class="table__td">{{ $row->from_type }}</td>
-                        <td class="table__td">{{ $row->from_descr }}</td>
-                        <td class="table__td">{{ $row->from_comments }}</td>
-                        <td class="table__td table__td--filled">{{ $row->to_name }}</td>
-                        <td class="table__td table__td--filled">{{ $row->to_type }}</td>
-                        <td class="table__td table__td--filled">{{ $row->to_descr }}</td>
+                        <td class="table__td">{{ $row->src_type }}</td>
+                        <td class="table__td">{{ $row->src_descr }}</td>
+                        <td class="table__td">{{ $row->src_comments }}</td>
+                        <td class="table__td table__td--filled">{{ $row->dwh_name }}</td>
+                        <td class="table__td table__td--filled">{{ $row->dwh_type }}</td>
+                        <td class="table__td table__td--filled">{{ $row->dwh_descr }}</td>
                         <td class="table__td table__td--filled">
-                            <input class="table__checkbox" type="checkbox" @checked($row->to_is_pk === true) disabled>
+                            <input class="table__checkbox" type="checkbox" @checked($row->dwh_is_pk === true) disabled>
                         </td>
                         <td class="table__td table__td--filled">
-                            <input class="table__checkbox" type="checkbox" @checked($row->to_is_mandatory === true) disabled>
+                            <input class="table__checkbox" type="checkbox" @checked($row->dwh_is_mandatory === true) disabled>
                         </td>
                     </tr>
                 @endforeach

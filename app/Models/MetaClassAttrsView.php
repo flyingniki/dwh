@@ -9,7 +9,7 @@ class MetaClassAttrsView extends Model
 {
     use HasFactory;
 
-    protected $table = 'meta_class_attrs_v';
+    protected $table = 'meta_class_attrs_v3';
 
     protected $primaryKey = 'class_id';
 
