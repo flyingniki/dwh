@@ -1,0 +1,26 @@
+.form
+  &__wrapper
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    gap: 20px
+
+  &__label
+    display: block
+    font-size: 14px
+    font-weight: 500
+    margin-bottom: 5px
+    color: $title
+
+  &__input
+    display: block
+    box-sizing: border-box
+    border: 1px solid $table-border
+    padding: 5px
+    border-radius: 5px
+    color: $text
+    height: 30px
+    width: 200px
+
+    &--textarea
+      height: 100px
+      resize: none

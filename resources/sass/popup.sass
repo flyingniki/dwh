@@ -1,0 +1,73 @@
+.popup
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  width: 100%
+  height: 100%
+  z-index: 1
+  background: rgba(0,0,0,0.5)
+
+  &__wrapper
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    padding: 24px 16px
+    box-sizing: border-box
+    background-color: $th-border
+    border: 1px solid $table-border
+    border-radius: 12px
+    z-index: 1
+
+  &__title
+    margin: 0
+    margin-bottom: 16px
+    font-weight: 600
+    font-size: 20px
+    line-height: 130%
+
+  &__input
+    display: block
+    box-sizing: border-box
+    font-size: 14px
+    font-weight: 400
+      // background-color: $dark-gray
+    border: none
+    border-radius: 12px
+    padding: 12px 20px
+    width: 100%
+    height: 44px
+      // color: $white
+    margin-bottom: 16px
+
+    &::-webkit-input-placeholder
+          // color: $white
+
+    &::-moz-placeholder
+        // color: $white
+
+    &__submit
+      font-weight: 600
+      font-size: 14px
+      line-height: 130%
+      padding: 13px
+      width: 100%
+
+    &__policy
+      margin-top: 16px
+
+    &__toggle
+      position: absolute
+      top: 21px
+      right: 16px
+      width: 32px
+      height: 32px
+      border-radius: 50%
+      background-image: url('../img/nav-close.svg')
+      background-repeat: no-repeat
+      background-position: center
+      background-color: transparent
+      cursor: pointer
+      border: none
+      z-index: 2

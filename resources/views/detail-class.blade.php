@@ -61,7 +61,6 @@
                     </div>
                 </div>
             </div>
-
             <button class="fields__submit" type="submit">Изменить</button>
         </form>
     </section>
@@ -106,5 +105,33 @@
                 @endforeach
             </tbody>
         </table>
+    </section>
+    <section class="popup">
+        <div class="popup__wrapper">
+            <h2 class="popup__title">Редактирование атрибута</h2>
+            <form class="form popup__form" action="#" method="post">
+                <div class="form__wrapper">
+                    <div class="form__container">
+                        <h3 class="form__caption">Источник данных</h3>
+                        <div class="form__fields">
+
+                        </div>
+                        <div class="form__fields">
+
+                        </div>
+                    </div>
+                    <div class="form__container">
+                        <h3 class="form__caption">Получатель данных(КХД)</h3>
+
+                    </div>
+                    <div class="form__fields">
+
+                    </div>
+                </div>
+        </div>
+        <button class="btn form__submit" type="submit">Изменить</button>
+        </form>
+        <button class="btn popup__toggle"><span class="visually-hidden">Закрыть форму</span></button>
+        </div>
     </section>
 @endsection
