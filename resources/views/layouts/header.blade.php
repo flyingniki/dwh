@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Classes</title>
-    @vite(['resources/sass/app.sass'])
+    @vite(['resources/sass/app.sass', 'resources/js/app.js'])
 </head>
 
 <body>
