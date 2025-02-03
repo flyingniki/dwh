@@ -1,26 +1,16 @@
 .form
-  &__container
-    display: grid
-    grid-template-columns: repeat(2, 1fr)
-    gap: 20px
+  &__caption
+    margin: 0
+    margin-bottom: 20px
 
-  &__label
-    display: block
-    font-size: 14px
-    font-weight: 500
-    margin-bottom: 5px
-    color: $title
-
-  &__input
+  &__submit
     display: block
     box-sizing: border-box
-    border: 1px solid $table-border
-    padding: 5px
+    height: 32px
     border-radius: 5px
+    padding: 5px
+    border: 1px solid $table-border
+    background-color: $tr
+    cursor: pointer
     color: $text
-    height: 30px
-    width: 200px
-
-    &--textarea
-      height: 100px
-      resize: none
+    float: right

@@ -110,53 +110,5 @@
             </tbody>
         </table>
     </section>
-    <section class="popup">
-        <div class="popup__wrapper">
-            <h2 class="popup__title">Редактирование атрибута</h2>
-            <form class="form popup__form" action="#" method="post">
-                <div class="form__wrapper">
-                    <h3 class="form__caption">Источник данных</h3>
-                    <div class="form__container">
-                        <div class="form__fields">
-                            <h4 class="form__subtitle">Src</h4>
-                            <span class="form__value">Value</span>
-                            <h4 class="form__subtitle">Src</h4>
-                            <span class="form__value">Value</span>
-                            <h4 class="form__subtitle">Src</h4>
-                            <span class="form__value">Value</span>
-                        </div>
-                        <div class="form__fields">
-                            <h4 class="form__subtitle">SrcNew</h4>
-                            <span class="form__value">Value</span>
-                            <h4 class="form__subtitle">SrcNew</h4>
-                            <span class="form__value">Value</span>
-                            <h4 class="form__subtitle">SrcNew</h4>
-                            <span class="form__value">Value</span>
-                        </div>
-                    </div>
-                    <h3 class="form__caption">Приемник данных</h3>
-                    <div class="form__container">
-                        <div class="form__fields">
-                            <h4 class="form__subtitle">DWH</h4>
-                            <span class="form__value">Value</span>
-                            <h4 class="form__subtitle">DWH</h4>
-                            <span class="form__value">Value</span>
-                            <h4 class="form__subtitle">DWH</h4>
-                            <span class="form__value">Value</span>
-                        </div>
-                        <div class="form__fields">
-                            <h4 class="form__subtitle">DWHNew</h4>
-                            <span class="form__value">Value</span>
-                            <h4 class="form__subtitle">DWHNew</h4>
-                            <span class="form__value">Value</span>
-                            <h4 class="form__subtitle">DWHNew</h4>
-                            <span class="form__value">Value</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn form__submit" type="submit">Изменить</button>
-            </form>
-            <button class="btn popup__toggle"><span class="visually-hidden">Закрыть форму</span></button>
-        </div>
-    </section>
+    @include('popup')
 @endsection

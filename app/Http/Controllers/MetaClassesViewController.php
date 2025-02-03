@@ -27,12 +27,7 @@ class MetaClassesViewController extends Controller
         return view('detail-class', compact('metaClassesView', 'classAttrs'));
     }
 
-    public function editClassAttr(MetaClassesView $metaClassesView)
-    {
-        return view('edit-class', compact('metaClassesView'));
-    }
-
-    public function updateClassAttr(MetaClassesViewRequest $metaClassesViewRequest, MetaClassesView $metaClassesView)
+    public function updateClass(MetaClassesViewRequest $metaClassesViewRequest, MetaClassesView $metaClassesView)
     {
         $metaClassesView->update($metaClassesViewRequest->validated());
 
