@@ -22,6 +22,8 @@ class MetaClassAttrsViewRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'src_attr_id_new' => 'integer',
+            'dwh_attr_id_new' => 'integer',
             'src_name_new' => 'string|nullable',
             'src_type_new' => 'string|nullable',
             'src_descr_new' => 'string|nullable',

@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MetaClassAttrsViewRequest;
-use App\Http\Requests\MetaClassesViewRequest;
 use App\Models\MetaClassAttrsView;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class MetaClassAttrsViewController extends Controller
 {
@@ -19,16 +17,21 @@ class MetaClassAttrsViewController extends Controller
 
     public function detailAttr(Request $request)
     {
-        $attr = MetaClassAttrsView::where([['src_attr_id_new', $request->srcId], ['dwh_attr_id_new', $request->dwhId]])->get();
+        $attr = MetaClassAttrsView::where([
+            ['src_attr_id_new', $request->srcId],
+            ['dwh_attr_id_new', $request->dwhId]
+        ])->get();
 
         return response($attr);
     }
 
-    public function updateAttr(MetaClassesViewRequest $metaClassesViewRequest)
+    public function updateAttr(MetaClassAttrsViewRequest $metaClassAttrsViewRequest)
     {
-        $updateAttr = MetaClassAttrsView::where([['src_attr_id_new', $metaClassesViewRequest->srcId], ['dwh_attr_id_new', $metaClassesViewRequest->dwhId]])
-            ->update($metaClassesViewRequest->validated());
+        $updateAttr = MetaClassAttrsView::where([
+            ['src_attr_id_new', $metaClassAttrsViewRequest->src_attr_id_new],
+            ['dwh_attr_id_new', $metaClassAttrsViewRequest->dwh_attr_id_new]
+        ])->update($metaClassAttrsViewRequest->validated());
 
-        return response($updateAttr);
+        return $updateAttr;
     }
 }

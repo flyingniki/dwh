@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const link = document.querySelector(".table__link--btn");
+  const links = document.querySelectorAll(".table__link--btn");
   const popup = document.querySelector(".popup");
   const closePopup = document.querySelector(".popup__toggle");
   const form = document.querySelector(".popup__form");
@@ -19,50 +19,53 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeSuccess = document.querySelector(".success__toggle");
   const okSuccess = document.querySelector(".success__close");
 
-  link.addEventListener("click", () => {
-    let arParam = [link.dataset.srcId, link.dataset.dwhId];
-    let [srcId, dwhId] = arParam;
-    // console.log(arParam);
-    axios
-      .post("/attrs", {
-        srcId: srcId,
-        dwhId: dwhId,
-      })
-      .then(function (response) {
-        // console.log(response);
-        if (response.data.length === 1) {
-          let data = response.data[0];
-          console.log(data);
-          srcAttrIdNew.value = data.src_attr_id_new;
-          dwhAttrIdNew.value = data.dwh_attr_id_new;
-          srcName.textContent = data.src_name;
-          srcType.textContent = data.src_type;
-          srcDescr.textContent = data.src_descr;
-          srcComments.textContent = data.src_comments;
-          dwhName.textContent = data.dwh_name;
-          dwhType.textContent = data.dwh_type;
-          dwhDescr.textContent = data.dwh_descr;
-          dwhPk.checked = data.dwh_is_pk;
-          dwhMD.checked = data.dwh_is_mandatory;
-          popup.classList.remove("visually-hidden");
-        } else {
-          let errMsg = "Data has several values";
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      let arParam = [link.dataset.srcId, link.dataset.dwhId];
+      let [srcId, dwhId] = arParam;
+      // console.log(arParam);
+      axios
+        .post("/attrs", {
+          srcId: srcId,
+          dwhId: dwhId,
+        })
+        .then(function (response) {
+          console.log(response);
+          if (response.data.length === 1) {
+            let data = response.data[0];
+            // console.log(data);
+            srcAttrIdNew.value = data.src_attr_id_new;
+            dwhAttrIdNew.value = data.dwh_attr_id_new;
+            srcName.textContent = data.src_name;
+            srcType.textContent = data.src_type;
+            srcDescr.textContent = data.src_descr;
+            srcComments.textContent = data.src_comments;
+            dwhName.textContent = data.dwh_name;
+            dwhType.textContent = data.dwh_type;
+            dwhDescr.textContent = data.dwh_descr;
+            dwhPk.checked = data.dwh_is_pk;
+            dwhMD.checked = data.dwh_is_mandatory;
+            popup.classList.remove("visually-hidden");
+          } else {
+            let errMsg = "Data has several values";
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    });
   });
 
   formSubmit.addEventListener("click", (e) => {
     e.preventDefault();
     let formData = new FormData(form);
+    let data = Object.fromEntries(formData);
     for (let [key, value] of formData.entries()) {
       console.log(`${key}: ${value}`);
     }
     axios
       .patch("/attrs/update", {
-        data: formData,
+        data,
       })
       .then(function (response) {
         console.log(response);

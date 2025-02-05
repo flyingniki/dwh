@@ -14,28 +14,28 @@
                     <td class="table__td">src_name</td>
                     <td class="table__td" id="src_name"></td>
                     <td class="table__td">
-                        <input class="table__input" type="text" name="src_name_new">
+                        <input class="table__input" type="text" name="src_name_new" id="src_name_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
                     <td class="table__td">src_type</td>
                     <td class="table__td" id="src_type"></td>
                     <td class="table__td">
-                        <input class="table__input" type="text" name="src_type_new">
+                        <input class="table__input" type="text" name="src_type_new" id="src_type_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
                     <td class="table__td">src_descr</td>
                     <td class="table__td" id="src_descr"></td>
                     <td class="table__td">
-                        <input class="table__input" type="text" name="src_descr_new">
+                        <input class="table__input" type="text" name="src_descr_new" id="src_descr_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
                     <td class="table__td">src_comments</td>
                     <td class="table__td" id="src_comments"></td>
                     <td class="table__td">
-                        <input class="table__input" type="text" name="src_comments_new">
+                        <input class="table__input" type="text" name="src_comments_new" id="src_comments_new">
                     </td>
                 </tr>
             </table>
@@ -45,21 +45,21 @@
                     <td class="table__td">dwh_name</td>
                     <td class="table__td" id="dwh_name"></td>
                     <td class="table__td">
-                        <input class="table__input" type="text" name="dwh_name_new">
+                        <input class="table__input" type="text" name="dwh_name_new" id="dwh_name_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
                     <td class="table__td">dwh_type</td>
                     <td class="table__td" id="dwh_type"></td>
                     <td class="table__td">
-                        <input class="table__input" type="text" name="dwh_type_new">
+                        <input class="table__input" type="text" name="dwh_type_new" id="dwh_type_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
                     <td class="table__td">dwh_descr</td>
                     <td class="table__td" id="dwh_descr"></td>
                     <td class="table__td">
-                        <input class="table__input" type="text" name="dwh_descr_new">
+                        <input class="table__input" type="text" name="dwh_descr_new" id="dwh_descr_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
@@ -68,7 +68,7 @@
                         <input class="table__checkbox" id="dwh_is_pk" type="checkbox" disabled>
                     </td>
                     <td class="table__td">
-                        <input class="table__checkbox" type="checkbox" name="dwh_is_pk_new">
+                        <input class="table__checkbox" type="checkbox" name="dwh_is_pk_new" id="dwh_is_pk_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
@@ -77,7 +77,7 @@
                         <input class="table__checkbox" id="dwh_is_mandatory" type="checkbox" disabled>
                     </td>
                     <td class="table__td">
-                        <input class="table__checkbox" type="checkbox" name="dwh_is_mandatory_new">
+                        <input class="table__checkbox" type="checkbox" name="dwh_is_mandatory_new" id="dwh_is_mandatory_new">
                     </td>
                 </tr>
             </table>
