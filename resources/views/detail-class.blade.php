@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 
+@vite(['resources/js/popup.js'])
+
 @section('content')
     @if (session('status'))
         <div class="alert">
@@ -78,18 +80,15 @@
                     <th class="table__th" title="dwh_descr">Descr</th>
                     <th class="table__th" title="dwh_is_pk">PK</th>
                     <th class="table__th" title="dwh_is_mandatory">NN</th>
-                    <th class="table__th"></th>
                 </tr>
             </thead>
             <tbody class="table__body">
                 @foreach ($classAttrs as $row)
                     <tr class="table__tr table__tr--body">
-                        {{-- TODO href --}}
                         <td class="table__td">
-                            <a class="table__link" target="_blank"
-                                href="{{ $row->subclass_id ? 'link' : 'no_link' }}">{{ $row->src_name }}</a>
+                            <a class="table__link table__link--btn" data-src-id={{ $row->src_attr_id_new }}
+                                data-dwh-id={{ $row->dwh_attr_id_new }}>{{ $row->src_name }}</a>
                         </td>
-                        {{-- TODO href --}}
                         <td class="table__td">{{ $row->src_type }}</td>
                         <td class="table__td">{{ $row->src_descr }}</td>
                         <td class="table__td">{{ $row->src_comments }}</td>
@@ -102,13 +101,11 @@
                         <td class="table__td table__td--filled">
                             <input class="table__checkbox" type="checkbox" @checked($row->dwh_is_mandatory === true) disabled>
                         </td>
-                        <td class="table__td">
-                            <button class="btn table__btn btn--edit" data-row="{{ $row->toJson() }}">Edit</button>
-                        </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </section>
     @include('popup')
+    @include('success')
 @endsection

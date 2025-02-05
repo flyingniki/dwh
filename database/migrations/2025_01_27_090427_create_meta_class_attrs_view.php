@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('row_ord');
             $table->integer('src_conf_id');
             $table->integer('src_ord');
-            $table->integer('src_id');
+            $table->integer('src_attr_id');
             $table->string('src_name');
             $table->string('src_type');
             $table->string('src_descr');
@@ -27,7 +27,7 @@ return new class extends Migration
             $table->boolean('src_is_subclass');
             $table->integer('src_conf_id_new');
             $table->integer('src_ord_new');
-            $table->integer('src_id_new');
+            $table->integer('src_attr_id_new');
             $table->string('src_name_new');
             $table->string('src_type_new');
             $table->string('src_descr_new');
@@ -37,16 +37,17 @@ return new class extends Migration
             $table->integer('dwh_conf_id');
             $table->integer('dwh_ord');
             $table->integer('dwh_linked_id');
-            $table->integer('dwh_id');
+            $table->integer('dwh_attr_id');
             $table->string('dwh_name');
             $table->string('dwh_type');
             $table->string('dwh_descr');
             $table->boolean('dwh_is_pk');
             $table->boolean('dwh_is_mandatory');
+            $table->integer('dwh_new_attr_id');
             $table->integer('dwh_conf_id_new');
             $table->integer('dwh_ord_new');
             $table->integer('dwh_linked_id_new');
-            $table->integer('dwh_id_new');
+            $table->integer('dwh_attr_id_new');
             $table->string('dwh_name_new');
             $table->string('dwh_type_new');
             $table->string('dwh_descr_new');

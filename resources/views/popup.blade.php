@@ -6,16 +6,13 @@
         <form class="form popup__form" action="{{ route('update.attr') }}" method="post">
             @csrf
             @method('patch')
+            <input type="hidden" name="src_attr_id_new" id="src_attr_id_new">
+            <input type="hidden" name="dwh_attr_id_new" id="dwh_attr_id_new">
             <h3 class="form__caption">Источник данных</h3>
             <table class="table form__table">
                 <tr class="table__tr">
                     <td class="table__td">src_name</td>
-                    {{-- TODO href --}}
-                    <td class="table__td">
-                        <a class="table__link" id="src_name" target="_blank"
-                            href="{{ $row->subclass_id ? 'link' : 'no_link' }}"></a>
-                    </td>
-                    {{-- TODO href --}}
+                    <td class="table__td" id="src_name"></td>
                     <td class="table__td">
                         <input class="table__input" type="text" name="src_name_new">
                     </td>

@@ -22,6 +22,6 @@ Route::controller(MetaClassesViewController::class)->group(function () {
 });
 
 Route::controller(MetaClassAttrsViewController::class)->group(function () {
-    Route::get('/attrs', 'showAttrs')->name('show.attrs');
+    Route::post('/attrs', 'detailAttr')->name('detail.attr');
     Route::patch('/attrs/update', 'updateAttr')->name('update.attr');
 });

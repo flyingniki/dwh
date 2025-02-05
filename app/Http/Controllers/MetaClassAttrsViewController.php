@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MetaClassAttrsViewRequest;
+use App\Http\Requests\MetaClassesViewRequest;
 use App\Models\MetaClassAttrsView;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class MetaClassAttrsViewController extends Controller
 {
@@ -15,11 +17,18 @@ class MetaClassAttrsViewController extends Controller
         return view('all-attributes', compact('attrs'));
     }
 
-    public function updateAttr(MetaClassAttrsViewRequest $metaClassAttrsViewRequest, MetaClassAttrsView $metaClassAttrsView)
+    public function detailAttr(Request $request)
     {
-        dd($metaClassAttrsView);
-        $metaClassAttrsView->update($metaClassAttrsViewRequest->validated());
+        $attr = MetaClassAttrsView::where([['src_attr_id_new', $request->srcId], ['dwh_attr_id_new', $request->dwhId]])->get();
 
-        // return redirect()->back()->with('status', 'Class updated successfully!');
+        return response($attr);
+    }
+
+    public function updateAttr(MetaClassesViewRequest $metaClassesViewRequest)
+    {
+        $updateAttr = MetaClassAttrsView::where([['src_attr_id_new', $metaClassesViewRequest->srcId], ['dwh_attr_id_new', $metaClassesViewRequest->dwhId]])
+            ->update($metaClassesViewRequest->validated());
+
+        return response($updateAttr);
     }
 }

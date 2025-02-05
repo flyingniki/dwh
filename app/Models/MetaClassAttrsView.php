@@ -17,6 +17,8 @@ class MetaClassAttrsView extends Model
 
     public $incrementing = false;
 
+    public $timestamps = false;
+
     public function metaClassesView()
     {
         return $this->belongsTo(
