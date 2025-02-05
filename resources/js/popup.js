@@ -2,8 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const links = document.querySelectorAll(".table__link--btn");
   const popup = document.querySelector(".popup");
   const closePopup = document.querySelector(".popup__toggle");
+
   const form = document.querySelector(".popup__form");
   const formSubmit = document.querySelector(".form__submit");
+
   const srcAttrIdNew = document.querySelector("#src_attr_id_new");
   const dwhAttrIdNew = document.querySelector("#dwh_attr_id_new");
   const srcName = document.querySelector("#src_name");
@@ -15,6 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const dwhDescr = document.querySelector("#dwh_descr");
   const dwhPk = document.querySelector("#dwh_is_pk");
   const dwhMD = document.querySelector("#dwh_is_mandatory");
+
+  const srcNameNew = document.querySelector("#src_name_new");
+  const srcTypeNew = document.querySelector("#src_type_new");
+  const srcDescrNew = document.querySelector("#src_descr_new");
+  const srcCommentsNew = document.querySelector("#src_comments_new");
+  const dwhNameNew = document.querySelector("#dwh_name_new");
+  const dwhTypeNew = document.querySelector("#dwh_type_new");
+  const dwhDescrNew = document.querySelector("#dwh_descr_new");
+  const dwhPkNew = document.querySelector("#dwh_is_pk_new");
+  const dwhMDNew = document.querySelector("#dwh_is_mandatory_new");
+
   const success = document.querySelector(".success");
   const closeSuccess = document.querySelector(".success__toggle");
   const okSuccess = document.querySelector(".success__close");
@@ -23,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", () => {
       let arParam = [link.dataset.srcId, link.dataset.dwhId];
       let [srcId, dwhId] = arParam;
-      // console.log(arParam);
       axios
         .post("/attrs", {
           srcId: srcId,
@@ -33,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log(response);
           if (response.data.length === 1) {
             let data = response.data[0];
-            // console.log(data);
             srcAttrIdNew.value = data.src_attr_id_new;
             dwhAttrIdNew.value = data.dwh_attr_id_new;
             srcName.textContent = data.src_name;
@@ -45,6 +56,16 @@ document.addEventListener("DOMContentLoaded", () => {
             dwhDescr.textContent = data.dwh_descr;
             dwhPk.checked = data.dwh_is_pk;
             dwhMD.checked = data.dwh_is_mandatory;
+
+            srcNameNew.value = data.src_name_new;
+            srcTypeNew.value = data.src_type_new;
+            srcDescrNew.value = data.src_descr_new;
+            srcCommentsNew.value = data.src_comments_new;
+            dwhNameNew.value = data.dwh_name_new;
+            dwhTypeNew.value = data.dwh_type_new;
+            dwhDescrNew.value = data.dwh_descr_new;
+            dwhPkNew.checked = data.dwh_is_pk_new;
+            dwhMDNew.checked = data.dwh_is_mandatory_new;
             popup.classList.remove("visually-hidden");
           } else {
             let errMsg = "Data has several values";
@@ -58,17 +79,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   formSubmit.addEventListener("click", (e) => {
     e.preventDefault();
-    let formData = new FormData(form);
-    let data = Object.fromEntries(formData);
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
     axios
       .patch("/attrs/update", {
-        data,
+        src_attr_id_new: srcAttrIdNew.value,
+        dwh_attr_id_new: dwhAttrIdNew.value,
+        src_name_new: srcNameNew.value,
+        src_type_new: srcTypeNew.value,
+        src_descr_new: srcDescrNew.value,
+        src_comments_new: srcCommentsNew.value,
+        dwh_name_new: dwhNameNew.value,
+        dwh_type_new: dwhTypeNew.value,
+        dwh_descr_new: dwhDescrNew.value,
+        dwh_is_pk_new: dwhPkNew.checked,
+        dwh_is_mandatory_new: dwhMDNew.checked,
       })
       .then(function (response) {
         console.log(response);
+        popup.classList.add("visually-hidden");
       })
       .catch(function (error) {
         console.log(error);

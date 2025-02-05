@@ -32,6 +32,6 @@ class MetaClassAttrsViewController extends Controller
             ['dwh_attr_id_new', $metaClassAttrsViewRequest->dwh_attr_id_new]
         ])->update($metaClassAttrsViewRequest->validated());
 
-        return $updateAttr;
+        return response($updateAttr);
     }
 }
