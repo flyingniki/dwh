@@ -83,6 +83,6 @@
             </table>
             <button class="btn form__submit" type="submit">Изменить</button>
         </form>
-        <button class="btn popup__toggle"><span class="visually-hidden">Закрыть форму</span></button>
+        <button class="popup__toggle"><span class="visually-hidden">Закрыть форму</span></button>
     </div>
 </section>

@@ -63,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            <button class="fields__submit" type="submit">Изменить</button>
+            <button class="btn fields__submit" type="submit">Изменить</button>
         </form>
     </section>
     <section class="result">

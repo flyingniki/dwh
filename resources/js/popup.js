@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const popup = document.querySelector(".popup");
   const closePopup = document.querySelector(".popup__toggle");
 
-  const form = document.querySelector(".popup__form");
+  // const form = document.querySelector(".popup__form");
   const formSubmit = document.querySelector(".form__submit");
 
   const srcAttrIdNew = document.querySelector("#src_attr_id_new");
@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const dwhMDNew = document.querySelector("#dwh_is_mandatory_new");
 
   const success = document.querySelector(".success");
-  const closeSuccess = document.querySelector(".success__toggle");
   const okSuccess = document.querySelector(".success__close");
 
   links.forEach((link) => {
@@ -96,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(function (response) {
         console.log(response);
         popup.classList.add("visually-hidden");
+        success.classList.remove("visually-hidden");
       })
       .catch(function (error) {
         console.log(error);
@@ -117,10 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.classList.contains("popup")) {
       popup.classList.add("visually-hidden");
     }
-  });
-
-  closeSuccess.addEventListener("click", () => {
-    success.classList.add("visually-hidden");
   });
 
   okSuccess.addEventListener("click", () => {

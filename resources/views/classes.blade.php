@@ -23,7 +23,7 @@
                 </select>
             </div>
 
-            <button class="fields__submit" type="submit">Показать</button>
+            <button class="btn fields__submit" type="submit">Показать</button>
         </form>
     </section>
     <section class="result">
