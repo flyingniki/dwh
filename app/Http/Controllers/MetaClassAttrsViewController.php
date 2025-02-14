@@ -8,13 +8,6 @@ use Illuminate\Http\Request;
 
 class MetaClassAttrsViewController extends Controller
 {
-    public function showAttrs()
-    {
-        $attrs = MetaClassAttrsView::all();
-
-        return view('all-attributes', compact('attrs'));
-    }
-
     public function detailAttr(Request $request)
     {
         $attr = MetaClassAttrsView::where([

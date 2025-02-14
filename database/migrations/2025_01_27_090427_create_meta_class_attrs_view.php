@@ -25,6 +25,14 @@ return new class extends Migration
             $table->string('src_descr');
             $table->string('src_comments');
             $table->boolean('src_is_subclass');
+            $table->string('src_sample_value');
+            $table->boolean('src_store_in_dwh');
+            $table->integer('src_subclass_id');
+            $table->integer('src_ref_to');
+            $table->boolean('src_is_drop');
+            $table->boolean('src_is_system');
+            $table->integer(' src_fk_class');
+
             $table->integer('src_conf_id_new');
             $table->integer('src_ord_new');
             $table->integer('src_attr_id_new');
@@ -34,6 +42,14 @@ return new class extends Migration
             $table->string('src_comments_new');
             $table->boolean('src_is_subclass_new');
             $table->boolean('src_is_drop_new');
+            $table->string('src_sample_value_new');
+            $table->boolean('src_store_in_dwh_new');
+            $table->integer('src_subclass_id_new');
+            $table->integer('src_ref_to_new');
+            $table->boolean('src_is_drop_new');
+            $table->boolean('src_is_system_new');
+            $table->integer(' src_fk_class_new');
+
             $table->integer('dwh_conf_id');
             $table->integer('dwh_ord');
             $table->integer('dwh_linked_id');
@@ -44,6 +60,13 @@ return new class extends Migration
             $table->boolean('dwh_is_pk');
             $table->boolean('dwh_is_mandatory');
             $table->integer('dwh_new_attr_id');
+            $table->string('dwh_sample_value');
+            $table->boolean('dwh_is_drop');
+            $table->boolean('dwh_is_system');
+            $table->boolean('dwh_is_auto');
+            $table->boolean('dwh_is_unique');
+            $table->boolean('dwh_is_indexed');
+
             $table->integer('dwh_conf_id_new');
             $table->integer('dwh_ord_new');
             $table->integer('dwh_linked_id_new');
@@ -53,7 +76,12 @@ return new class extends Migration
             $table->string('dwh_descr_new');
             $table->boolean('dwh_is_pk_new');
             $table->boolean('dwh_is_mandatory_new');
+            $table->string('dwh_sample_value_new');
             $table->boolean('dwh_is_drop_new');
+            $table->boolean('dwh_is_system_new');
+            $table->boolean('dwh_is_auto_new');
+            $table->boolean('dwh_is_unique_new');
+            $table->boolean('dwh_is_indexed_new');
         });
     }
 
