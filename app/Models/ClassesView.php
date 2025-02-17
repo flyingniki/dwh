@@ -6,12 +6,12 @@ use App\Http\Filters\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MetaClassesView extends Model
+class ClassesView extends Model
 {
     use HasFactory;
     use Filterable;
 
-    protected $table = 'meta_classes_v';
+    protected $table = 'classes_v';
 
     protected $primaryKey = 'class_id';
 
@@ -35,10 +35,10 @@ class MetaClassesView extends Model
 
     public $timestamps = false;
 
-    public function metaClassAttrsView()
+    public function metaAttrsView()
     {
         return $this->hasMany(
-            MetaClassAttrsView::class,
+            MetaAttrsView::class,
             'class_id',
             'class_id'
         );

@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-<section class="popup visually-hidden">
+<section class="popup popup__update visually-hidden">
     <div class="popup__wrapper">
         <h2 class="popup__title">Редактирование атрибута</h2>
         <form class="form popup__form" action="{{ route('update.attr') }}" method="post">
@@ -38,7 +38,6 @@
                         <input class="table__input" type="text" name="src_comments_new" id="src_comments_new">
                     </td>
                 </tr>
-                {{-- TODO --}}
                 <tr class="table__tr">
                     <td class="table__td">src_sample_value</td>
                     <td class="table__td" id="src_sample_value"></td>
@@ -49,7 +48,10 @@
                 </tr>
                 <tr class="table__tr">
                     <td class="table__td">src_store_in_dwh</td>
-                    <td class="table__td" id="src_store_in_dwh"></td>
+                    <td class="table__td">
+                        <input class="table__checkbox" type="checkbox" name="src_store_in_dwh" id="src_store_in_dwh"
+                            disabled>
+                    </td>
                     <td class="table__td">
                         <input class="table__checkbox" type="checkbox" name="src_store_in_dwh_new"
                             id="src_store_in_dwh_new">
@@ -71,14 +73,19 @@
                 </tr>
                 <tr class="table__tr">
                     <td class="table__td">src_is_drop</td>
-                    <td class="table__td" id="src_is_drop"></td>
+                    <td class="table__td">
+                        <input class="table__checkbox" type="checkbox" name="src_is_drop" id="src_is_drop" disabled>
+                    </td>
                     <td class="table__td">
                         <input class="table__checkbox" type="checkbox" name="src_is_drop_new" id="src_is_drop_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
                     <td class="table__td">src_is_system</td>
-                    <td class="table__td" id="src_is_system"></td>
+                    <td class="table__td">
+                        <input class="table__checkbox" type="checkbox" name="src_is_system" id="src_is_system"
+                            disabled>
+                    </td>
                     <td class="table__td">
                         <input class="table__checkbox" type="checkbox" name="src_is_system_new"
                             id="src_is_system_new">
@@ -91,7 +98,6 @@
                         <input class="table__input" type="text" name="src_fk_class_new" id="src_fk_class_new">
                     </td>
                 </tr>
-                {{-- TODO --}}
             </table>
             <h3 class="form__caption">Приемник данных</h3>
             <table class="table form__table">
@@ -135,14 +141,11 @@
                             id="dwh_is_mandatory_new">
                     </td>
                 </tr>
-                {{-- TODO --}}
                 <tr class="table__tr">
                     <td class="table__td">dwh_sample_value</td>
+                    <td class="table__td" id="dwh_sample_value"></td>
                     <td class="table__td">
-                        <input class="table__input" id="dwh_sample_value" type="text" disabled>
-                    </td>
-                    <td class="table__td">
-                        <input class="table__checkbox" type="checkbox" name="dwh_sample_value_new"
+                        <input class="table__input" type="text" name="dwh_sample_value_new"
                             id="dwh_sample_value_new">
                     </td>
                 </tr>
@@ -152,8 +155,7 @@
                         <input class="table__checkbox" id="dwh_is_drop" type="checkbox" disabled>
                     </td>
                     <td class="table__td">
-                        <input class="table__checkbox" type="checkbox" name="dwh_is_drop_new"
-                            id="dwh_is_drop_new">
+                        <input class="table__checkbox" type="checkbox" name="dwh_is_drop_new" id="dwh_is_drop_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
@@ -172,8 +174,7 @@
                         <input class="table__checkbox" id="dwh_is_auto" type="checkbox" disabled>
                     </td>
                     <td class="table__td">
-                        <input class="table__checkbox" type="checkbox" name="dwh_is_auto_new"
-                            id="dwh_is_auto_new">
+                        <input class="table__checkbox" type="checkbox" name="dwh_is_auto_new" id="dwh_is_auto_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
@@ -196,9 +197,8 @@
                             id="dwh_is_indexed_new">
                     </td>
                 </tr>
-                {{-- TODO --}}
             </table>
-            <button class="btn form__submit" type="submit">Изменить</button>
+            <button class="btn form__update" type="submit">Изменить</button>
         </form>
         <button class="popup__toggle"><span class="visually-hidden">Закрыть форму</span></button>
     </div>

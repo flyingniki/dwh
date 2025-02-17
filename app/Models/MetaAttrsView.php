@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MetaClassAttrsView extends Model
+class MetaAttrsView extends Model
 {
     use HasFactory;
 
-    protected $table = 'meta_class_attrs_v3';
+    protected $table = 'meta.attrs_v';
 
     protected $primaryKey = 'class_id';
 
@@ -45,10 +45,10 @@ class MetaClassAttrsView extends Model
 
     public $timestamps = false;
 
-    public function metaClassesView()
+    public function ClassesView()
     {
         return $this->belongsTo(
-            MetaClassesView::class,
+            ClassesView::class,
             'class_id',
             'class_id'
         );

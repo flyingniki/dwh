@@ -48,7 +48,7 @@
                     <tr class="table__tr table__tr--body">
                         <td class="table__td">
                             <a class="table__link" target="_blank"
-                                href="{{ route('detail.class', ['metaClassesView' => $row->class_id]) }}">{{ $row->class_id }}</a>
+                                href="{{ route('detail.class', ['ClassesView' => $row->class_id]) }}">{{ $row->class_id }}</a>
                         </td>
                         <td class="table__td">{{ $row->name }}</td>
                         <td class="table__td">{{ $row->source }}</td>

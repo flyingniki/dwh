@@ -1,12 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   const links = document.querySelectorAll(".table__link--btn");
-  const popup = document.querySelector(".popup");
-  const closePopup = document.querySelector(".popup__toggle");
+  const closePopup = document.querySelectorAll(".popup__toggle");
   const success = document.querySelector(".success");
   const okSuccess = document.querySelector(".success__close");
-
-  // const form = document.querySelector(".popup__form");
-  const formSubmit = document.querySelector(".form__submit");
+  const addAttr = document.querySelector(".result__create");
+  const popupUpdate = document.querySelector(".popup__update");
+  const formUpdate = document.querySelector(".form__update");
 
   const srcAttrIdNew = document.querySelector("#src_attr_id_new");
   const dwhAttrIdNew = document.querySelector("#dwh_attr_id_new");
@@ -72,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log(response);
           if (response.data.length === 1) {
             let data = response.data[0];
+            console.log(data);
             srcAttrIdNew.value = data.src_attr_id_new;
             dwhAttrIdNew.value = data.dwh_attr_id_new;
 
@@ -81,49 +81,79 @@ document.addEventListener("DOMContentLoaded", () => {
             srcComments.textContent = data.src_comments;
             srcSampleValue.textContent = data.src_sample_value;
             srcStoreInDwh.checked = data.src_store_in_dwh;
+            if (data.src_store_in_dwh === null) {
+              srcStoreInDwh.classList.add("table__checkbox--disabled");
+            }
             srcSubclassId.textContent = data.src_subclass_id;
             srcRefTo.textContent = data.src_ref_to;
             srcIsDrop.checked = data.src_is_drop;
+            if (data.src_is_drop === null) {
+              srcIsDrop.classList.add("table__checkbox--disabled");
+            }
             srcIsSystem.checked = data.src_is_system;
+            if (data.src_is_system === null) {
+              srcIsSystem.classList.add("table__checkbox--disabled");
+            }
             srcFkClass.textContent = data.src_fk_class;
 
             srcNameNew.value = data.src_name_new;
             srcTypeNew.value = data.src_type_new;
             srcDescrNew.value = data.src_descr_new;
             srcCommentsNew.value = data.src_comments_new;
-            srcSampleValueNew.textContent = data.src_sample_value_new;
+            srcSampleValueNew.value = data.src_sample_value_new;
             srcStoreInDwhNew.checked = data.src_store_in_dwh_new;
-            srcSubclassIdNew.textContent = data.src_subclass_id_new;
-            srcRefToNew.textContent = data.src_ref_to_new;
+            srcSubclassIdNew.value = data.src_subclass_id_new;
+            srcRefToNew.value = data.src_ref_to_new;
             srcIsDropNew.checked = data.src_is_drop_new;
             srcIsSystemNew.checked = data.src_is_system_new;
-            srcFkClassNew.textContent = data.src_fk_class_new;
+            srcFkClassNew.value = data.src_fk_class_new;
 
             dwhName.textContent = data.dwh_name;
             dwhType.textContent = data.dwh_type;
             dwhDescr.textContent = data.dwh_descr;
             dwhIsPk.checked = data.dwh_is_pk;
+            if (data.dwh_is_pk === null) {
+              dwhIsPk.classList.add("table__checkbox--disabled");
+            }
             dwhIsMandatory.checked = data.dwh_is_mandatory;
+            if (data.dwh_is_mandatory === null) {
+              dwhIsMandatory.classList.add("table__checkbox--disabled");
+            }
             dwhSampleValue.textContent = data.dwh_sample_value;
             dwhIsDrop.checked = data.dwh_is_drop;
+            if (data.dwh_is_drop === null) {
+              dwhIsDrop.classList.add("table__checkbox--disabled");
+            }
             dwhIsSystem.checked = data.dwh_is_system;
+            if (data.dwh_is_system === null) {
+              dwhIsSystem.classList.add("table__checkbox--disabled");
+            }
             dwhIsAuto.checked = data.dwh_is_auto;
+            if (data.dwh_is_auto === null) {
+              dwhIsAuto.classList.add("table__checkbox--disabled");
+            }
             dwhIsUnique.checked = data.dwh_is_unique;
+            if (data.dwh_is_unique === null) {
+              dwhIsUnique.classList.add("table__checkbox--disabled");
+            }
             dwhIsIndexed.checked = data.dwh_is_indexed;
+            if (data.dwh_is_indexed === null) {
+              dwhIsIndexed.classList.add("table__checkbox--disabled");
+            }
 
             dwhNameNew.value = data.dwh_name_new;
             dwhTypeNew.value = data.dwh_type_new;
             dwhDescrNew.value = data.dwh_descr_new;
             dwhIsPkNew.checked = data.dwh_is_pk_new;
             dwhIsMandatoryNew.checked = data.dwh_is_mandatory_new;
-            dwhSampleValueNew.textContent = data.dwh_sample_value_new;
+            dwhSampleValueNew.value = data.dwh_sample_value_new;
             dwhIsDropNew.checked = data.dwh_is_drop_new;
             dwhIsSystemNew.checked = data.dwh_is_system_new;
             dwhIsAutoNew.checked = data.dwh_is_auto_new;
             dwhIsUniqueNew.checked = data.dwh_is_unique_new;
             dwhIsIndexedNew.checked = data.dwh_is_indexed_new;
 
-            popup.classList.remove("visually-hidden");
+            popupUpdate.classList.remove("visually-hidden");
           } else {
             let errMsg = "Data has several values";
           }
@@ -134,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  formSubmit.addEventListener("click", (e) => {
+  formUpdate.addEventListener("click", (e) => {
     e.preventDefault();
     axios
       .patch("/attrs/update", {
@@ -167,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .then(function (response) {
         console.log(response);
-        popup.classList.add("visually-hidden");
+        popupUpdate.classList.add("visually-hidden");
         success.classList.remove("visually-hidden");
       })
       .catch(function (error) {
@@ -175,20 +205,26 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  closePopup.addEventListener("click", () => {
-    popup.classList.add("visually-hidden");
+  addAttr.addEventListener("click", () => {
+    formCreate.classList.toggle("visually-hidden");
+  });
+
+  closePopup.forEach((item) => {
+    item.addEventListener("click", () => {
+      popupUpdate.classList.add("visually-hidden");
+    });
   });
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" || e.key === "Esc") {
-      popup.classList.add("visually-hidden");
+      popupUpdate.classList.add("visually-hidden");
       success.classList.add("visually-hidden");
     }
   });
 
-  popup.addEventListener("click", (e) => {
+  popupUpdate.addEventListener("click", (e) => {
     if (e.target.classList.contains("popup")) {
-      popup.classList.add("visually-hidden");
+      popupUpdate.classList.add("visually-hidden");
     }
   });
 

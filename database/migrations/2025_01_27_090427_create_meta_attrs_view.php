@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('meta_class_attrs_view', function (Blueprint $table) {
+        Schema::create('meta_attrs_view', function (Blueprint $table) {
             $table->integer('class_id');
-            $table->foreign('class_id')->references('class_id')->on('meta_classes_view');
+            $table->foreign('class_id')->references('class_id')->on('classes_view');
             $table->string('subclass_id');
             $table->integer('subclass_ord');
             $table->integer('row_ord');

@@ -14,7 +14,8 @@ export default defineConfig({
       input: [
         "resources/sass/app.sass",
         "resources/js/app.js",
-        "resources/js/popup.js",
+        "resources/js/create.js",
+        "resources/js/update.js",
       ],
       refresh: true,
     }),

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('meta_classes_view', function (Blueprint $table) {
+        Schema::create('classes_view', function (Blueprint $table) {
             $table->string('class_id');
             $table->string('class_id')->references('class_id')->on('meta_class_attrs_view');
             $table->string('name');
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('meta_classes_view');
+        Schema::dropIfExists('classes_view');
     }
 };

@@ -4,7 +4,7 @@ namespace App\Http\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class MetaClassesViewFilter extends QueryFilter
+class ClassesViewFilter extends QueryFilter
 {
     /**
      * @param string $id
