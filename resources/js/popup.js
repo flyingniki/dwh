@@ -129,7 +129,9 @@ document.addEventListener("DOMContentLoaded", () => {
         popup.classList.add("visually-hidden");
         formCreate.classList.add("visually-hidden");
         info.classList.remove("visually-hidden");
-        infoTitle.textContent = error.response.data.message;
+        infoTitle.textContent = error.response.data.errors
+          ? JSON.stringify(error.response.data.errors)
+          : error.response.data.message;
       });
   });
 
@@ -143,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
           dwhId: dwhId,
         })
         .then(function (response) {
-          console.log("response", response);
+          console.log("link response", response);
           if (response.data.length === 1) {
             let data = response.data[0];
             console.log("data", data);
@@ -234,7 +236,11 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         })
         .catch(function (error) {
-          console.log("error", error);
+          console.log("link error", error);
+          info.classList.remove("visually-hidden");
+          infoTitle.textContent = error.response.data.errors
+            ? JSON.stringify(error.response.data.errors)
+            : error.response.data.message;
         });
     });
   });
@@ -280,7 +286,9 @@ document.addEventListener("DOMContentLoaded", () => {
         popup.classList.add("visually-hidden");
         formUpdate.classList.add("visually-hidden");
         info.classList.remove("visually-hidden");
-        infoTitle.textContent = error.response.data.message;
+        infoTitle.textContent = error.response.data.errors
+          ? JSON.stringify(error.response.data.errors)
+          : error.response.data.message;
       });
   });
 

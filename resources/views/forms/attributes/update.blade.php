@@ -1,4 +1,4 @@
-<form class="form form--update visually-hidden" action="{{ route('update.attr') }}" method="post">
+<form class="form form--update visually-hidden" method="post">
     @csrf
     @method('patch')
     <h2 class="popup__title">Редактирование атрибута</h2>

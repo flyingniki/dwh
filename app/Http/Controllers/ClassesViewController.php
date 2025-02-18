@@ -29,8 +29,8 @@ class ClassesViewController extends Controller
 
     public function update(ClassesViewRequest $classesViewRequest, ClassesView $classesView)
     {
-        $classesView->update($classesViewRequest->validated());
+        $updateClass = $classesView->update($classesViewRequest->validated());
 
-        return redirect()->back()->with('status', 'Class updated successfully!');
+        return response($updateClass);
     }
 }

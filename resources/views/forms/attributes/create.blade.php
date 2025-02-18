@@ -1,4 +1,4 @@
-<form class="form form--create visually-hidden" action="{{ route('create.attr') }}" method="post">
+<form class="form form--create visually-hidden" method="post">
     @csrf
     <h2 class="popup__title">Добавление атрибута</h2>
     <h3 class="form__caption">Источник данных</h3>
@@ -36,8 +36,7 @@
         <tr class="table__tr">
             <td class="table__td">Сохранять в КХД</td>
             <td class="table__td">
-                <input class="table__checkbox" type="checkbox" name="cr_src_store_in_dwh"
-                    id="cr_src_store_in_dwh">
+                <input class="table__checkbox" type="checkbox" name="cr_src_store_in_dwh" id="cr_src_store_in_dwh">
             </td>
         </tr>
         <tr class="table__tr">
@@ -94,15 +93,13 @@
         <tr class="table__tr">
             <td class="table__td">Mandatory</td>
             <td class="table__td">
-                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_mandatory"
-                    id="cr_dwh_is_mandatory">
+                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_mandatory" id="cr_dwh_is_mandatory">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Пример значения</td>
             <td class="table__td">
-                <input class="table__input" type="text" name="cr_dwh_sample_value"
-                    id="cr_dwh_sample_value">
+                <input class="table__input" type="text" name="cr_dwh_sample_value" id="cr_dwh_sample_value">
             </td>
         </tr>
         <tr class="table__tr">
@@ -114,8 +111,7 @@
         <tr class="table__tr">
             <td class="table__td">Системный</td>
             <td class="table__td">
-                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_system"
-                    id="cr_dwh_is_system">
+                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_system" id="cr_dwh_is_system">
             </td>
         </tr>
         <tr class="table__tr">
@@ -127,15 +123,13 @@
         <tr class="table__tr">
             <td class="table__td">Уникальное</td>
             <td class="table__td">
-                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_unique"
-                    id="cr_dwh_is_unique">
+                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_unique" id="cr_dwh_is_unique">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Индексировать</td>
             <td class="table__td">
-                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_indexed"
-                    id="cr_dwh_is_indexed">
+                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_indexed" id="cr_dwh_is_indexed">
             </td>
         </tr>
     </table>
