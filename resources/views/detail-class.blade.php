@@ -1,7 +1,6 @@
 @extends('layouts.layout')
 
-@vite(['resources/js/update.js'])
-@vite(['resources/js/create.js'])
+@vite(['resources/js/popup.js'])
 
 @section('content')
     @if (session('status'))
@@ -108,7 +107,6 @@
         </table>
         <button class="btn result__create">Добавить аттрибут</button>
     </section>
-    @include('create')
-    @include('update')
+    @include('popup')
     @include('success')
 @endsection

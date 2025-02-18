@@ -1,10 +1,10 @@
 @extends('layouts.layout')
 
-<section class="popup popup__create visually-hidden">
+<section class="popup visually-hidden">
     <div class="popup__wrapper">
-        <h2 class="popup__title">Редактирование атрибута</h2>
-        <form class="form popup__form" action="{{ route('update.attr') }}" method="post">
+        <form class="form form--create visually-hidden" action="{{ route('create.attr') }}" method="post">
             @csrf
+            <h2 class="popup__title">Добавление атрибута</h2>
             <input type="hidden" name="cr_src_attr_id_new" id="cr_src_attr_id_new">
             <input type="hidden" name="cr_dwh_attr_id_new" id="cr_dwh_attr_id_new">
             <h3 class="form__caption">Источник данных</h3>
@@ -50,7 +50,8 @@
                 <tr class="table__tr">
                     <td class="table__td">src_subclass_id</td>
                     <td class="table__td">
-                        <input class="table__input" type="text" name="cr_src_subclass_id_new" id="cr_src_subclass_id_new">
+                        <input class="table__input" type="text" name="cr_src_subclass_id_new"
+                            id="cr_src_subclass_id_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
@@ -62,13 +63,15 @@
                 <tr class="table__tr">
                     <td class="table__td">src_is_drop</td>
                     <td class="table__td">
-                        <input class="table__checkbox" type="checkbox" name="cr_src_is_drop_new" id="cr_src_is_drop_new">
+                        <input class="table__checkbox" type="checkbox" name="cr_src_is_drop_new"
+                            id="cr_src_is_drop_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
                     <td class="table__td">src_is_system</td>
                     <td class="table__td">
-                        <input class="table__checkbox" type="checkbox" name="cr_src_is_system_new" id="cr_src_is_system_new">
+                        <input class="table__checkbox" type="checkbox" name="cr_src_is_system_new"
+                            id="cr_src_is_system_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
@@ -101,7 +104,8 @@
                 <tr class="table__tr">
                     <td class="table__td">dwh_is_pk</td>
                     <td class="table__td">
-                        <input class="table__checkbox" type="checkbox" name="cr_dwh_is_pk_new" id="cr_dwh_is_pk_new">
+                        <input class="table__checkbox" type="checkbox" name="cr_dwh_is_pk_new"
+                            id="cr_dwh_is_pk_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
@@ -121,7 +125,8 @@
                 <tr class="table__tr">
                     <td class="table__td">dwh_is_drop</td>
                     <td class="table__td">
-                        <input class="table__checkbox" type="checkbox" name="cr_dwh_is_drop_new" id="cr_dwh_is_drop_new">
+                        <input class="table__checkbox" type="checkbox" name="cr_dwh_is_drop_new"
+                            id="cr_dwh_is_drop_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
@@ -134,7 +139,8 @@
                 <tr class="table__tr">
                     <td class="table__td">dwh_is_auto</td>
                     <td class="table__td">
-                        <input class="table__checkbox" type="checkbox" name="cr_dwh_is_auto_new" id="cr_dwh_is_auto_new">
+                        <input class="table__checkbox" type="checkbox" name="cr_dwh_is_auto_new"
+                            id="cr_dwh_is_auto_new">
                     </td>
                 </tr>
                 <tr class="table__tr">
@@ -152,7 +158,7 @@
                     </td>
                 </tr>
             </table>
-            <button class="btn form__update" type="submit">Изменить</button>
+            <button class="btn form__submit form__submit--create" type="submit">Изменить</button>
         </form>
         <button class="popup__toggle"><span class="visually-hidden">Закрыть форму</span></button>
     </div>

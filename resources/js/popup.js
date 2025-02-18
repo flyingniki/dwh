@@ -1,11 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const popup = document.querySelector(".popup");
+  const closePopup = document.querySelector(".popup__toggle");
+  const formCreate = document.querySelector(".form--create");
+  const formUpdate = document.querySelector(".form--update");
   const links = document.querySelectorAll(".table__link--btn");
-  const closePopup = document.querySelectorAll(".popup__toggle");
   const success = document.querySelector(".success");
   const okSuccess = document.querySelector(".success__close");
-  const addAttr = document.querySelector(".result__create");
-  const popupUpdate = document.querySelector(".popup__update");
-  const formUpdate = document.querySelector(".form__update");
+  const createAttr = document.querySelector(".result__create");
+  const submitCreate = document.querySelector(".form__submit--create");
+  const submitUpdate = document.querySelector(".form__submit--update");
 
   const srcAttrIdNew = document.querySelector("#src_attr_id_new");
   const dwhAttrIdNew = document.querySelector("#dwh_attr_id_new");
@@ -57,6 +60,87 @@ document.addEventListener("DOMContentLoaded", () => {
   const dwhIsAutoNew = document.querySelector("#dwh_is_auto_new");
   const dwhIsUniqueNew = document.querySelector("#dwh_is_unique_new");
   const dwhIsIndexedNew = document.querySelector("#dwh_is_indexed_new");
+  // for create
+  const crSrcAttrIdNew = document.querySelector("#cr_src_attr_id_new");
+  const crDwhAttrIdNew = document.querySelector("#cr_dwh_attr_id_new");
+
+  const crSrcNameNew = document.querySelector("#cr_src_name_new");
+  const crSrcTypeNew = document.querySelector("#cr_src_type_new");
+  const crSrcDescrNew = document.querySelector("#cr_src_descr_new");
+  const crSrcCommentsNew = document.querySelector("#cr_src_comments_new");
+  const crSrcSampleValueNew = document.querySelector(
+    "#cr_src_sample_value_new"
+  );
+  const crSrcStoreInDwhNew = document.querySelector("#cr_src_store_in_dwh_new");
+  const crSrcSubclassIdNew = document.querySelector("#cr_src_subclass_id_new");
+  const crSrcRefToNew = document.querySelector("#cr_src_ref_to_new");
+  const crSrcIsDropNew = document.querySelector("#cr_src_is_drop_new");
+  const crSrcIsSystemNew = document.querySelector("#cr_src_is_system_new");
+  const crSrcFkClassNew = document.querySelector("#cr_src_fk_class_new");
+
+  const crDwhNameNew = document.querySelector("#cr_dwh_name_new");
+  const crDwhTypeNew = document.querySelector("#cr_dwh_type_new");
+  const crDwhDescrNew = document.querySelector("#cr_dwh_descr_new");
+  const crDwhIsPkNew = document.querySelector("#cr_dwh_is_pk_new");
+  const crDwhIsMandatoryNew = document.querySelector(
+    "#cr_dwh_is_mandatory_new"
+  );
+  const crDwhSampleValueNew = document.querySelector(
+    "#cr_dwh_sample_value_new"
+  );
+  const crDwhIsDropNew = document.querySelector("#cr_dwh_is_drop_new");
+  const crDwhIsSystemNew = document.querySelector("#cr_dwh_is_system_new");
+  const crDwhIsAutoNew = document.querySelector("#cr_dwh_is_auto_new");
+  const crDwhIsUniqueNew = document.querySelector("#cr_dwh_is_unique_new");
+  const crDwhIsIndexedNew = document.querySelector("#cr_dwh_is_indexed_new");
+
+  createAttr.addEventListener("click", () => {
+    popup.classList.remove("visually-hidden");
+    formUpdate.classList.add("visually-hidden");
+    formCreate.classList.remove("visually-hidden");
+  });
+
+  submitCreate.addEventListener("click", (e) => {
+    e.preventDefault();
+    axios
+      .post("/attrs/create", {
+        src_attr_id_new: crSrcAttrIdNew.value,
+        dwh_attr_id_new: crDwhAttrIdNew.value,
+
+        src_name_new: crSrcNameNew.value,
+        src_type_new: crSrcTypeNew.value,
+        src_descr_new: crSrcDescrNew.value,
+        src_comments_new: crSrcCommentsNew.value,
+        src_sample_value_new: crSrcSampleValueNew.value,
+        src_store_in_dwh_new: crSrcStoreInDwhNew.checked,
+        src_subclass_id_new: crSrcSubclassIdNew.value,
+        src_ref_to_new: crSrcRefToNew.value,
+        src_is_drop_new: crSrcIsDropNew.checked,
+        src_is_system_new: crSrcIsSystemNew.checked,
+        src_fk_class_new: crSrcFkClassNew.value,
+
+        dwh_name_new: crDwhNameNew.value,
+        dwh_type_new: crDwhTypeNew.value,
+        dwh_descr_new: crDwhDescrNew.value,
+        dwh_is_pk_new: crDwhIsPkNew.checked,
+        dwh_is_mandatory_new: crDwhIsMandatoryNew.checked,
+        dwh_sample_value_new: crDwhSampleValueNew.value,
+        dwh_is_drop_new: crDwhIsDropNew.checked,
+        dwh_is_system_new: crDwhIsSystemNew.checked,
+        dwh_is_auto_new: crDwhIsAutoNew.checked,
+        dwh_is_unique_new: crDwhIsUniqueNew.checked,
+        dwh_is_indexed_new: crDwhIsIndexedNew.checked,
+      })
+      .then(function (response) {
+        console.log("create response", response);
+        popup.classList.add("visually-hidden");
+        formCreate.classList.add("visually-hidden");
+        success.classList.remove("visually-hidden");
+      })
+      .catch(function (error) {
+        console.log("create error", error);
+      });
+  });
 
   links.forEach((link) => {
     link.addEventListener("click", () => {
@@ -68,10 +152,10 @@ document.addEventListener("DOMContentLoaded", () => {
           dwhId: dwhId,
         })
         .then(function (response) {
-          console.log(response);
+          console.log("response", response);
           if (response.data.length === 1) {
             let data = response.data[0];
-            console.log(data);
+            console.log("data", data);
             srcAttrIdNew.value = data.src_attr_id_new;
             dwhAttrIdNew.value = data.dwh_attr_id_new;
 
@@ -153,18 +237,20 @@ document.addEventListener("DOMContentLoaded", () => {
             dwhIsUniqueNew.checked = data.dwh_is_unique_new;
             dwhIsIndexedNew.checked = data.dwh_is_indexed_new;
 
-            popupUpdate.classList.remove("visually-hidden");
+            popup.classList.remove("visually-hidden");
+            formCreate.classList.add("visually-hidden");
+            formUpdate.classList.remove("visually-hidden");
           } else {
             let errMsg = "Data has several values";
           }
         })
         .catch(function (error) {
-          console.log(error);
+          console.log("error", error);
         });
     });
   });
 
-  formUpdate.addEventListener("click", (e) => {
+  submitUpdate.addEventListener("click", (e) => {
     e.preventDefault();
     axios
       .patch("/attrs/update", {
@@ -196,35 +282,30 @@ document.addEventListener("DOMContentLoaded", () => {
         dwh_is_indexed_new: dwhIsIndexedNew.checked,
       })
       .then(function (response) {
-        console.log(response);
-        popupUpdate.classList.add("visually-hidden");
+        console.log("update response", response);
+        popup.classList.add("visually-hidden");
+        formUpdate.classList.add("visually-hidden");
         success.classList.remove("visually-hidden");
       })
       .catch(function (error) {
-        console.log(error);
+        console.log("update error", error);
       });
   });
 
-  addAttr.addEventListener("click", () => {
-    formCreate.classList.toggle("visually-hidden");
-  });
-
-  closePopup.forEach((item) => {
-    item.addEventListener("click", () => {
-      popupUpdate.classList.add("visually-hidden");
-    });
+  closePopup.addEventListener("click", () => {
+    popup.classList.add("visually-hidden");
   });
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" || e.key === "Esc") {
-      popupUpdate.classList.add("visually-hidden");
+      popup.classList.add("visually-hidden");
       success.classList.add("visually-hidden");
     }
   });
 
-  popupUpdate.addEventListener("click", (e) => {
+  popup.addEventListener("click", (e) => {
     if (e.target.classList.contains("popup")) {
-      popupUpdate.classList.add("visually-hidden");
+      popup.classList.add("visually-hidden");
     }
   });
 
