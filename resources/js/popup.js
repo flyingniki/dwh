@@ -4,8 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const formCreate = document.querySelector(".form--create");
   const formUpdate = document.querySelector(".form--update");
   const links = document.querySelectorAll(".table__link--btn");
-  const success = document.querySelector(".success");
-  const okSuccess = document.querySelector(".success__close");
+  const info = document.querySelector(".info");
+  const infoTitle = document.querySelector(".info__title");
+  const okInfo = document.querySelector(".info__close");
   const createAttr = document.querySelector(".result__create");
   const submitCreate = document.querySelector(".form__submit--create");
   const submitUpdate = document.querySelector(".form__submit--update");
@@ -58,37 +59,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const dwhIsUniqueNew = document.querySelector("#dwh_is_unique_new");
   const dwhIsIndexedNew = document.querySelector("#dwh_is_indexed_new");
 
-  const crSrcAttrIdNew = document.querySelector("#cr_src_attr_id_new");
-  const crDwhAttrIdNew = document.querySelector("#cr_dwh_attr_id_new");
-
   const crSrcNameNew = document.querySelector("#cr_src_name_new");
-  const crSrcTypeNew = document.querySelector("#cr_src_type_new");
-  const crSrcDescrNew = document.querySelector("#cr_src_descr_new");
-  const crSrcCommentsNew = document.querySelector("#cr_src_comments_new");
-  const crSrcSampleValueNew = document.querySelector(
-    "#cr_src_sample_value_new"
-  );
-  const crSrcStoreInDwhNew = document.querySelector("#cr_src_store_in_dwh_new");
-  const crSrcSubclassIdNew = document.querySelector("#cr_src_subclass_id_new");
-  const crSrcIsDropNew = document.querySelector("#cr_src_is_drop_new");
-  const crSrcIsSystemNew = document.querySelector("#cr_src_is_system_new");
-  const crSrcFkClassNew = document.querySelector("#cr_src_fk_class_new");
+  const crSrcType = document.querySelector("#cr_src_type");
+  const crSrcDescr = document.querySelector("#cr_src_descr");
+  const crSrcComments = document.querySelector("#cr_src_comments");
+  const crSrcSampleValue = document.querySelector("#cr_src_sample_value");
+  const crSrcStoreInDwh = document.querySelector("#cr_src_store_in_dwh");
+  const crSrcSubclassId = document.querySelector("#cr_src_subclass_id");
+  const crSrcIsDrop = document.querySelector("#cr_src_is_drop");
+  const crSrcIsSystem = document.querySelector("#cr_src_is_system");
+  const crSrcFkClass = document.querySelector("#cr_src_fk_class");
 
-  const crDwhNameNew = document.querySelector("#cr_dwh_name_new");
-  const crDwhTypeNew = document.querySelector("#cr_dwh_type_new");
-  const crDwhDescrNew = document.querySelector("#cr_dwh_descr_new");
-  const crDwhIsPkNew = document.querySelector("#cr_dwh_is_pk_new");
-  const crDwhIsMandatoryNew = document.querySelector(
-    "#cr_dwh_is_mandatory_new"
-  );
-  const crDwhSampleValueNew = document.querySelector(
-    "#cr_dwh_sample_value_new"
-  );
-  const crDwhIsDropNew = document.querySelector("#cr_dwh_is_drop_new");
-  const crDwhIsSystemNew = document.querySelector("#cr_dwh_is_system_new");
-  const crDwhIsAutoNew = document.querySelector("#cr_dwh_is_auto_new");
-  const crDwhIsUniqueNew = document.querySelector("#cr_dwh_is_unique_new");
-  const crDwhIsIndexedNew = document.querySelector("#cr_dwh_is_indexed_new");
+  const crDwhName = document.querySelector("#cr_dwh_name");
+  const crDwhType = document.querySelector("#cr_dwh_type");
+  const crDwhDescr = document.querySelector("#cr_dwh_descr");
+  const crDwhIsPk = document.querySelector("#cr_dwh_is_pk");
+  const crDwhIsMandatory = document.querySelector("#cr_dwh_is_mandatory");
+  const crDwhSampleValue = document.querySelector("#cr_dwh_sample_value");
+  const crDwhIsDrop = document.querySelector("#cr_dwh_is_drop");
+  const crDwhIsSystem = document.querySelector("#cr_dwh_is_system");
+  const crDwhIsAuto = document.querySelector("#cr_dwh_is_auto");
+  const crDwhIsUnique = document.querySelector("#cr_dwh_is_unique");
+  const crDwhIsIndexed = document.querySelector("#cr_dwh_is_indexed");
 
   createAttr.addEventListener("click", () => {
     popup.classList.remove("visually-hidden");
@@ -102,39 +94,42 @@ document.addEventListener("DOMContentLoaded", () => {
       .post("/attrs/create", {
         class_id: createAttr.dataset.classId,
 
-        // src_attr_id_new: crSrcAttrIdNew.value,
         src_name_new: crSrcNameNew.value,
-        src_type_new: crSrcTypeNew.value,
-        src_descr_new: crSrcDescrNew.value,
-        src_comments_new: crSrcCommentsNew.value,
-        src_sample_value_new: crSrcSampleValueNew.value,
-        src_store_in_dwh_new: crSrcStoreInDwhNew.checked,
-        src_subclass_id_new: crSrcSubclassIdNew.value,
-        src_is_drop_new: crSrcIsDropNew.checked,
-        src_is_system_new: crSrcIsSystemNew.checked,
-        src_fk_class_new: crSrcFkClassNew.value,
+        src_type: crSrcType.value,
+        src_descr: crSrcDescr.value,
+        src_comments: crSrcComments.value,
+        src_sample_value: crSrcSampleValue.value,
+        src_store_in_dwh: crSrcStoreInDwh.checked,
+        src_subclass_id: crSrcSubclassId.value,
+        src_is_drop: crSrcIsDrop.checked,
+        src_is_system: crSrcIsSystem.checked,
+        src_fk_class: crSrcFkClass.value,
 
-        // dwh_attr_id_new: crDwhAttrIdNew.value,
-        dwh_name_new: crDwhNameNew.value,
-        dwh_type_new: crDwhTypeNew.value,
-        dwh_descr_new: crDwhDescrNew.value,
-        dwh_is_pk_new: crDwhIsPkNew.checked,
-        dwh_is_mandatory_new: crDwhIsMandatoryNew.checked,
-        dwh_sample_value_new: crDwhSampleValueNew.value,
-        dwh_is_drop_new: crDwhIsDropNew.checked,
-        dwh_is_system_new: crDwhIsSystemNew.checked,
-        dwh_is_auto_new: crDwhIsAutoNew.checked,
-        dwh_is_unique_new: crDwhIsUniqueNew.checked,
-        dwh_is_indexed_new: crDwhIsIndexedNew.checked,
+        dwh_name: crDwhName.value,
+        dwh_type: crDwhType.value,
+        dwh_descr: crDwhDescr.value,
+        dwh_is_pk: crDwhIsPk.checked,
+        dwh_is_mandatory: crDwhIsMandatory.checked,
+        dwh_sample_value: crDwhSampleValue.value,
+        dwh_is_drop: crDwhIsDrop.checked,
+        dwh_is_system: crDwhIsSystem.checked,
+        dwh_is_auto: crDwhIsAuto.checked,
+        dwh_is_unique: crDwhIsUnique.checked,
+        dwh_is_indexed: crDwhIsIndexed.checked,
       })
       .then(function (response) {
         console.log("create response", response);
         popup.classList.add("visually-hidden");
         formCreate.classList.add("visually-hidden");
-        success.classList.remove("visually-hidden");
+        info.classList.remove("visually-hidden");
+        infoTitle.textContent = "Аттрибут создан";
       })
       .catch(function (error) {
         console.log("create error", error);
+        popup.classList.add("visually-hidden");
+        formCreate.classList.add("visually-hidden");
+        info.classList.remove("visually-hidden");
+        infoTitle.textContent = error.response.data.message;
       });
   });
 
@@ -277,10 +272,15 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("update response", response);
         popup.classList.add("visually-hidden");
         formUpdate.classList.add("visually-hidden");
-        success.classList.remove("visually-hidden");
+        info.classList.remove("visually-hidden");
+        infoTitle.textContent = "Данные успешно обновлены";
       })
       .catch(function (error) {
         console.log("update error", error);
+        popup.classList.add("visually-hidden");
+        formUpdate.classList.add("visually-hidden");
+        info.classList.remove("visually-hidden");
+        infoTitle.textContent = error.response.data.message;
       });
   });
 
@@ -291,7 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" || e.key === "Esc") {
       popup.classList.add("visually-hidden");
-      success.classList.add("visually-hidden");
+      info.classList.add("visually-hidden");
     }
   });
 
@@ -301,13 +301,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  okSuccess.addEventListener("click", () => {
-    success.classList.add("visually-hidden");
+  okInfo.addEventListener("click", () => {
+    info.classList.add("visually-hidden");
   });
 
-  success.addEventListener("click", (e) => {
-    if (e.target.classList.contains("success")) {
-      success.classList.add("visually-hidden");
+  info.addEventListener("click", (e) => {
+    if (e.target.classList.contains("info")) {
+      info.classList.add("visually-hidden");
     }
   });
 });

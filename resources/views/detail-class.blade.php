@@ -71,6 +71,7 @@
         <table class="table result__table">
             <thead class="table__head">
                 <tr class="table__tr">
+                    <th class="table__th" title="src_name_new">Новый</th>
                     <th class="table__th" title="src_name">Аттрибут</th>
                     <th class="table__th" title="src_type">Тип</th>
                     <th class="table__th" title="src_descr">Описание</th>
@@ -85,11 +86,30 @@
             <tbody class="table__body">
                 @foreach ($classAttrs as $row)
                     <tr class="table__tr table__tr--body">
-                        <td class="table__td">
+                        @php
+                            $class = '';
+                        @endphp
+                        @if ($row->src_is_drop)
+                            @php
+                                $class = 'table__td--delete';
+                            @endphp
+                        @endif
+                        @if ($row->src_is_system)
+                            @php
+                                $class = 'table__td--system';
+                            @endphp
+                        @endif
+                        @if ($row->src_subclass_id || $row->src_fk_class)
+                            @php
+                                $class = 'table__td--subclass';
+                            @endphp
+                        @endif
+                        <td class="table__td {{ $class }}">
                             <a class="table__link table__link--btn" data-class-id={{ $classesView->class_id }}
                                 data-src-id={{ $row->src_attr_id_new }}
-                                data-dwh-id={{ $row->dwh_attr_id_new }}>{{ $row->src_name }}</a>
+                                data-dwh-id={{ $row->dwh_attr_id_new }}>{{ $row->src_name_new }}</a>
                         </td>
+                        <td class="table__td">{{ $row->src_name }}</td>
                         <td class="table__td">{{ $row->src_type }}</td>
                         <td class="table__td">{{ $row->src_descr }}</td>
                         <td class="table__td">{{ $row->src_comments }}</td>
@@ -109,5 +129,5 @@
         <button class="btn result__create" data-class-id="{{ $classesView->class_id }}">Добавить аттрибут</button>
     </section>
     @include('popup')
-    @include('success')
+    @include('info')
 @endsection

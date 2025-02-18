@@ -12,56 +12,56 @@
         <tr class="table__tr">
             <td class="table__td">Тип данных</td>
             <td class="table__td">
-                <input class="table__input" type="text" name="cr_src_type_new" id="cr_src_type_new">
+                <input class="table__input" type="text" name="cr_src_type" id="cr_src_type">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Описание</td>
             <td class="table__td">
-                <input class="table__input" type="text" name="cr_src_descr_new" id="cr_src_descr_new">
+                <input class="table__input" type="text" name="cr_src_descr" id="cr_src_descr">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Комментарии</td>
             <td class="table__td">
-                <input class="table__input" type="text" name="cr_src_comments_new" id="cr_src_comments_new">
+                <input class="table__input" type="text" name="cr_src_comments" id="cr_src_comments">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Пример значения</td>
             <td class="table__td">
-                <input class="table__input" type="text" name="cr_src_sample_value_new" id="cr_src_sample_value_new">
+                <input class="table__input" type="text" name="cr_src_sample_value" id="cr_src_sample_value">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Сохранять в КХД</td>
             <td class="table__td">
-                <input class="table__checkbox" type="checkbox" name="cr_src_store_in_dwh_new"
-                    id="cr_src_store_in_dwh_new">
+                <input class="table__checkbox" type="checkbox" name="cr_src_store_in_dwh"
+                    id="cr_src_store_in_dwh">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Подкласс</td>
             <td class="table__td">
-                <input class="table__input" type="text" name="cr_src_subclass_id_new" id="cr_src_subclass_id_new">
+                <input class="table__input" type="text" name="cr_src_subclass_id" id="cr_src_subclass_id">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Удалить</td>
             <td class="table__td">
-                <input class="table__checkbox" type="checkbox" name="cr_src_is_drop_new" id="cr_src_is_drop_new">
+                <input class="table__checkbox" type="checkbox" name="cr_src_is_drop" id="cr_src_is_drop">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Системный</td>
             <td class="table__td">
-                <input class="table__checkbox" type="checkbox" name="cr_src_is_system_new" id="cr_src_is_system_new">
+                <input class="table__checkbox" type="checkbox" name="cr_src_is_system" id="cr_src_is_system">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Ссылка на класс</td>
             <td class="table__td">
-                <input class="table__input" type="text" name="cr_src_fk_class_new" id="cr_src_fk_class_new">
+                <input class="table__input" type="text" name="cr_src_fk_class" id="cr_src_fk_class">
             </td>
         </tr>
     </table>
@@ -70,72 +70,72 @@
         <tr class="table__tr">
             <td class="table__td">Имя аттрибута</td>
             <td class="table__td">
-                <input class="table__input" type="text" name="cr_dwh_name_new" id="cr_dwh_name_new">
+                <input class="table__input" type="text" name="cr_dwh_name" id="cr_dwh_name">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Тип данных</td>
             <td class="table__td">
-                <input class="table__input" type="text" name="cr_dwh_type_new" id="cr_dwh_type_new">
+                <input class="table__input" type="text" name="cr_dwh_type" id="cr_dwh_type">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Описание</td>
             <td class="table__td">
-                <input class="table__input" type="text" name="cr_dwh_descr_new" id="cr_dwh_descr_new">
+                <input class="table__input" type="text" name="cr_dwh_descr" id="cr_dwh_descr">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">PK</td>
             <td class="table__td">
-                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_pk_new" id="cr_dwh_is_pk_new">
+                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_pk" id="cr_dwh_is_pk">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Mandatory</td>
             <td class="table__td">
-                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_mandatory_new"
-                    id="cr_dwh_is_mandatory_new">
+                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_mandatory"
+                    id="cr_dwh_is_mandatory">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Пример значения</td>
             <td class="table__td">
-                <input class="table__input" type="text" name="cr_dwh_sample_value_new"
-                    id="cr_dwh_sample_value_new">
+                <input class="table__input" type="text" name="cr_dwh_sample_value"
+                    id="cr_dwh_sample_value">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Удалить</td>
             <td class="table__td">
-                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_drop_new" id="cr_dwh_is_drop_new">
+                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_drop" id="cr_dwh_is_drop">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Системный</td>
             <td class="table__td">
-                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_system_new"
-                    id="cr_dwh_is_system_new">
+                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_system"
+                    id="cr_dwh_is_system">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Auto->ID</td>
             <td class="table__td">
-                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_auto_new" id="cr_dwh_is_auto_new">
+                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_auto" id="cr_dwh_is_auto">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Уникальное</td>
             <td class="table__td">
-                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_unique_new"
-                    id="cr_dwh_is_unique_new">
+                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_unique"
+                    id="cr_dwh_is_unique">
             </td>
         </tr>
         <tr class="table__tr">
             <td class="table__td">Индексировать</td>
             <td class="table__td">
-                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_indexed_new"
-                    id="cr_dwh_is_indexed_new">
+                <input class="table__checkbox" type="checkbox" name="cr_dwh_is_indexed"
+                    id="cr_dwh_is_indexed">
             </td>
         </tr>
     </table>
