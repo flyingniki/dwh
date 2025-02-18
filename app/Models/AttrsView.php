@@ -5,29 +5,32 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MetaAttrsView extends Model
+class AttrsView extends Model
 {
     use HasFactory;
 
-    protected $table = 'meta.attrs_v';
+    protected $table = 'attrs_v';
 
     protected $primaryKey = 'class_id';
 
     protected $keyType = 'string';
 
     protected $fillable = [
+        'class_id',
+
+        'src_attr_id_new',
         'src_name_new',
         'src_type_new',
         'src_descr_new',
         'src_comments_new',
         'src_sample_value_new',
+        'src_store_in_dwh_new',
         'src_subclass_id_new',
-        'src_ref_to_new',
         'src_is_drop_new',
         'src_is_system_new',
         'src_fk_class_new',
-        'src_store_in_dwh_new',
 
+        'dwh_attr_id_new',
         'dwh_name_new',
         'dwh_type_new',
         'dwh_descr_new',

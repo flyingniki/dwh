@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('classes_view', function (Blueprint $table) {
             $table->string('class_id');
-            $table->string('class_id')->references('class_id')->on('meta_class_attrs_view');
+            $table->string('class_id')->references('class_id')->on('attrs_view');
             $table->string('name');
             $table->string('in_out');
             $table->string('source');

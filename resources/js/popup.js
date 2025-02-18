@@ -10,9 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitCreate = document.querySelector(".form__submit--create");
   const submitUpdate = document.querySelector(".form__submit--update");
 
-  const srcAttrIdNew = document.querySelector("#src_attr_id_new");
-  const dwhAttrIdNew = document.querySelector("#dwh_attr_id_new");
-
   const srcName = document.querySelector("#src_name");
   const srcType = document.querySelector("#src_type");
   const srcDescr = document.querySelector("#src_descr");
@@ -20,11 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const srcSampleValue = document.querySelector("#src_sample_value");
   const srcStoreInDwh = document.querySelector("#src_store_in_dwh");
   const srcSubclassId = document.querySelector("#src_subclass_id");
-  const srcRefTo = document.querySelector("#src_ref_to");
   const srcIsDrop = document.querySelector("#src_is_drop");
   const srcIsSystem = document.querySelector("#src_is_system");
   const srcFkClass = document.querySelector("#src_fk_class");
 
+  const srcAttrIdNew = document.querySelector("#src_attr_id_new");
   const srcNameNew = document.querySelector("#src_name_new");
   const srcTypeNew = document.querySelector("#src_type_new");
   const srcDescrNew = document.querySelector("#src_descr_new");
@@ -32,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const srcSampleValueNew = document.querySelector("#src_sample_value_new");
   const srcStoreInDwhNew = document.querySelector("#src_store_in_dwh_new");
   const srcSubclassIdNew = document.querySelector("#src_subclass_id_new");
-  const srcRefToNew = document.querySelector("#src_ref_to_new");
   const srcIsDropNew = document.querySelector("#src_is_drop_new");
   const srcIsSystemNew = document.querySelector("#src_is_system_new");
   const srcFkClassNew = document.querySelector("#src_fk_class_new");
@@ -49,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dwhIsUnique = document.querySelector("#dwh_is_unique");
   const dwhIsIndexed = document.querySelector("#dwh_is_indexed");
 
+  const dwhAttrIdNew = document.querySelector("#dwh_attr_id_new");
   const dwhNameNew = document.querySelector("#dwh_name_new");
   const dwhTypeNew = document.querySelector("#dwh_type_new");
   const dwhDescrNew = document.querySelector("#dwh_descr_new");
@@ -60,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dwhIsAutoNew = document.querySelector("#dwh_is_auto_new");
   const dwhIsUniqueNew = document.querySelector("#dwh_is_unique_new");
   const dwhIsIndexedNew = document.querySelector("#dwh_is_indexed_new");
-  // for create
+
   const crSrcAttrIdNew = document.querySelector("#cr_src_attr_id_new");
   const crDwhAttrIdNew = document.querySelector("#cr_dwh_attr_id_new");
 
@@ -73,7 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   const crSrcStoreInDwhNew = document.querySelector("#cr_src_store_in_dwh_new");
   const crSrcSubclassIdNew = document.querySelector("#cr_src_subclass_id_new");
-  const crSrcRefToNew = document.querySelector("#cr_src_ref_to_new");
   const crSrcIsDropNew = document.querySelector("#cr_src_is_drop_new");
   const crSrcIsSystemNew = document.querySelector("#cr_src_is_system_new");
   const crSrcFkClassNew = document.querySelector("#cr_src_fk_class_new");
@@ -104,9 +100,9 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     axios
       .post("/attrs/create", {
-        src_attr_id_new: crSrcAttrIdNew.value,
-        dwh_attr_id_new: crDwhAttrIdNew.value,
+        class_id: createAttr.dataset.classId,
 
+        // src_attr_id_new: crSrcAttrIdNew.value,
         src_name_new: crSrcNameNew.value,
         src_type_new: crSrcTypeNew.value,
         src_descr_new: crSrcDescrNew.value,
@@ -114,11 +110,11 @@ document.addEventListener("DOMContentLoaded", () => {
         src_sample_value_new: crSrcSampleValueNew.value,
         src_store_in_dwh_new: crSrcStoreInDwhNew.checked,
         src_subclass_id_new: crSrcSubclassIdNew.value,
-        src_ref_to_new: crSrcRefToNew.value,
         src_is_drop_new: crSrcIsDropNew.checked,
         src_is_system_new: crSrcIsSystemNew.checked,
         src_fk_class_new: crSrcFkClassNew.value,
 
+        // dwh_attr_id_new: crDwhAttrIdNew.value,
         dwh_name_new: crDwhNameNew.value,
         dwh_type_new: crDwhTypeNew.value,
         dwh_descr_new: crDwhDescrNew.value,
@@ -156,8 +152,6 @@ document.addEventListener("DOMContentLoaded", () => {
           if (response.data.length === 1) {
             let data = response.data[0];
             console.log("data", data);
-            srcAttrIdNew.value = data.src_attr_id_new;
-            dwhAttrIdNew.value = data.dwh_attr_id_new;
 
             srcName.textContent = data.src_name;
             srcType.textContent = data.src_type;
@@ -169,7 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
               srcStoreInDwh.classList.add("table__checkbox--disabled");
             }
             srcSubclassId.textContent = data.src_subclass_id;
-            srcRefTo.textContent = data.src_ref_to;
             srcIsDrop.checked = data.src_is_drop;
             if (data.src_is_drop === null) {
               srcIsDrop.classList.add("table__checkbox--disabled");
@@ -180,6 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             srcFkClass.textContent = data.src_fk_class;
 
+            srcAttrIdNew.value = data.src_attr_id_new;
             srcNameNew.value = data.src_name_new;
             srcTypeNew.value = data.src_type_new;
             srcDescrNew.value = data.src_descr_new;
@@ -187,7 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
             srcSampleValueNew.value = data.src_sample_value_new;
             srcStoreInDwhNew.checked = data.src_store_in_dwh_new;
             srcSubclassIdNew.value = data.src_subclass_id_new;
-            srcRefToNew.value = data.src_ref_to_new;
             srcIsDropNew.checked = data.src_is_drop_new;
             srcIsSystemNew.checked = data.src_is_system_new;
             srcFkClassNew.value = data.src_fk_class_new;
@@ -225,6 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
               dwhIsIndexed.classList.add("table__checkbox--disabled");
             }
 
+            dwhAttrIdNew.value = data.dwh_attr_id_new;
             dwhNameNew.value = data.dwh_name_new;
             dwhTypeNew.value = data.dwh_type_new;
             dwhDescrNew.value = data.dwh_descr_new;
@@ -255,8 +249,6 @@ document.addEventListener("DOMContentLoaded", () => {
     axios
       .patch("/attrs/update", {
         src_attr_id_new: srcAttrIdNew.value,
-        dwh_attr_id_new: dwhAttrIdNew.value,
-
         src_name_new: srcNameNew.value,
         src_type_new: srcTypeNew.value,
         src_descr_new: srcDescrNew.value,
@@ -264,11 +256,11 @@ document.addEventListener("DOMContentLoaded", () => {
         src_sample_value_new: srcSampleValueNew.value,
         src_store_in_dwh_new: srcStoreInDwhNew.checked,
         src_subclass_id_new: srcSubclassIdNew.value,
-        src_ref_to_new: srcRefToNew.value,
         src_is_drop_new: srcIsDropNew.checked,
         src_is_system_new: srcIsSystemNew.checked,
         src_fk_class_new: srcFkClassNew.value,
 
+        dwh_attr_id_new: dwhAttrIdNew.value,
         dwh_name_new: dwhNameNew.value,
         dwh_type_new: dwhTypeNew.value,
         dwh_descr_new: dwhDescrNew.value,

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\MetaAttrsViewController;
+use App\Http\Controllers\AttrsViewController;
 use App\Http\Controllers\ClassesViewController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(ClassesViewController::class)->group(function () {
     Route::get('/classes', 'show')->name('show.classes');
-    Route::get('/classes/{ClassesView}', 'detail')->name('detail.class');
-    Route::patch('/classes/{ClassesView}/update', 'update')->name('update.class');
+    Route::get('/classes/{classesView}', 'detail')->name('detail.class');
+    Route::patch('/classes/{classesView}/update', 'update')->name('update.class');
 });
 
-Route::controller(MetaAttrsViewController::class)->group(function () {
+Route::controller(AttrsViewController::class)->group(function () {
     Route::post('/attrs', 'show')->name('detail.attr');
     Route::post('/attrs/create', 'create')->name('create.attr');
     Route::patch('/attrs/update', 'update')->name('update.attr');

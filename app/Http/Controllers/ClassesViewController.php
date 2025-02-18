@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Filters\ClassesViewFilter;
 use App\Http\Requests\ClassesViewRequest;
-use App\Models\MetaAttrsView;
+use App\Models\AttrsView;
 use App\Models\ClassesView;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,16 +20,16 @@ class ClassesViewController extends Controller
         return view('classes', compact('data', 'sources', 'requestData'));
     }
 
-    public function detail(ClassesView $ClassesView)
+    public function detail(ClassesView $classesView)
     {
-        $classAttrs = MetaAttrsView::where('class_id', $ClassesView->class_id)->get();
+        $classAttrs = AttrsView::where('class_id', $classesView->class_id)->get();
 
-        return view('detail-class', compact('ClassesView', 'classAttrs'));
+        return view('detail-class', compact('classesView', 'classAttrs'));
     }
 
-    public function update(ClassesViewRequest $ClassesViewRequest, ClassesView $ClassesView)
+    public function update(ClassesViewRequest $classesViewRequest, ClassesView $classesView)
     {
-        $ClassesView->update($ClassesViewRequest->validated());
+        $classesView->update($classesViewRequest->validated());
 
         return redirect()->back()->with('status', 'Class updated successfully!');
     }

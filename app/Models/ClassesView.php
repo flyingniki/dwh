@@ -35,10 +35,10 @@ class ClassesView extends Model
 
     public $timestamps = false;
 
-    public function metaAttrsView()
+    public function AttrsView()
     {
         return $this->hasMany(
-            MetaAttrsView::class,
+            AttrsView::class,
             'class_id',
             'class_id'
         );
